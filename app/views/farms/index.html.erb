@@ -1,0 +1,5 @@
+<h1>All Farms</h1>
+
+<% @farms.each do |farm| %>
+  <h3><a href="/farms/<%= farm.id %>"><%= farm.name %></a></h3>
+<% end %>
