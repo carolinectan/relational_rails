@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Garden.destroy_all
-Farm.destroy_all
 Plant.destroy_all
 Farmer.destroy_all
+Garden.destroy_all
+Farm.destroy_all
 
 miracle_garden = Garden.create!(name: 'Miracle Garden', irrigation: true, plant_capacity: 20)
 butterfly_garden = Garden.create!(name: 'Butterfly Garden', irrigation: false, plant_capacity: 40)
