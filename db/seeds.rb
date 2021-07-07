@@ -30,3 +30,16 @@ bonsai_garden.plants.create!(name: 'chinese elm', edible: false, mature_height: 
 strawberry_farm = Farm.create!(name: 'Strawberry Farm', has_animals: false, num_of_fields: 22)
 llama_farm = Farm.create!(name: 'Llama Farm', has_animals: true, num_of_fields: 5)
 vegetable_farm = Farm.create!(name: 'Vegetable Farm', has_animals: false, num_of_fields: 68)
+
+strawberry_farm.farmers.create!(name: 'Joann', age: 42, owns_land: true)
+strawberry_farm.farmers.create!(name: 'Sal', age: 64, owns_land: true)
+strawberry_farm.farmers.create!(name: 'Teresa', age: 26, owns_land: false)
+
+llama_farm.farmers.create!(name: 'Larry', age: 38, owns_land: false)
+llama_farm.farmers.create!(name: 'Lucy', age: 72, owns_land: true)
+llama_farm.farmers.create!(name: 'Jerry', age: 18, owns_land: false)
+llama_farm.farmers.create!(name: 'Amanda', age: 30, owns_land: true)
+
+vegetable_farm.farmers.create!(name: 'Vernon', age: 50, owns_land: true)
+vegetable_farm.farmers.create!(name: 'Nancy', age: 34, owns_land: false)
+vegetable_farm.farmers.create!(name: 'Peter', age: 47, owns_land: true)
