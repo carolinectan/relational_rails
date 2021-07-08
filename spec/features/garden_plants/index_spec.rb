@@ -28,4 +28,18 @@ RSpec.describe 'Garden Plants Index' do
     expect(page).to have_content(@plant2.mature_height)
     expect(page).to have_content(@plant3.mature_height)
   end
+
+  it 'displays a link that takes you to the plant index' do
+    visit "/gardens"
+
+    garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
+    garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
+    garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
+
+    expect(page).to have_content('Plant Index')
+
+    click_on('Plant Index')
+
+    page.has_xpath?('/plants')
+  end
 end
