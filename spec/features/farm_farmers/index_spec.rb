@@ -10,8 +10,9 @@ RSpec.describe 'farm to farmers index page', type: :feature do
 
     visit "/farms/#{farm.id}/farmers"
 
-    expect(page).to have_content(farm.name)
-    expect(page).to have_content("Farmers:")
-    expect(page).to have_content("1. #{farmer_1.name}")
+    expect(page).to have_content("#{farm.name}'s Farmers")
+    expect(page).to have_content("#{farmer_1.name}")
+    expect(page).to have_content("#{farmer_2.name}")
+    expect(page).to have_content("#{farmer_3.name}")
   end
 end
