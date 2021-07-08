@@ -8,7 +8,6 @@ RSpec.describe 'farmers index page', type: :feature do
     farmer_2 = farm.farmers.create!(name: 'Carina', age: 26, owns_land: false)
 
     visit "/farmers/#{farmer_1.id}"
-    save_and_open_page
 
     expect(page).to have_content(farmer_1.name)
     expect(page).to have_content("Age: #{farmer_1.age}")
