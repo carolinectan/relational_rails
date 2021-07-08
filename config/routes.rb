@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get '/farmers', to: 'farmers#index'
   get '/farmers/:id', to: 'farmers#show'
 
-  get 'farms/:id/farmers', to:"farm_farmers#index"
+  get '/farms/:id/farmers', to:"farm_farmers#index"
 end

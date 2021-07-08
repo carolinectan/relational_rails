@@ -10,4 +10,14 @@ RSpec.describe 'farms index page', type: :feature do
     expect(page).to have_content(farm_1.name)
     expect(page).to have_content(farm_2.name)
   end
+
+  it 'can display all farms in order by most recently created' do
+    farm_1 = Farm.create!(name: '1 Sheep Farm', has_animals: true, num_of_fields: 8)
+    farm_2 = Farm.create!(name: '2 Corn Farm', has_animals: false, num_of_fields: 15)
+    farm_3 = Farm.create!(name: '3 Alpaca Farm', has_animals: false, num_of_fields: 55)
+
+    visit '/farms'
+
+    expect(page).to have_content("#{farm_3.name}\n#{farm_2.name}\n#{farm_1.name}")
+  end
 end
