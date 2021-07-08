@@ -2,4 +2,5 @@
 
 <% @farms.each do |farm| %>
   <h3><a href="/farms/<%= farm.id %>"><%= farm.name %></a></h3>
+  <p>(Created at: <%= farm.created_at %>)</p>
 <% end %>
