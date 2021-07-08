@@ -42,7 +42,7 @@ RSpec.describe 'plants show page' do
   it 'displays a link that takes you to the garden index' do
     garden = Garden.create!(name: 'sample garden', irrigation: true, plant_capacity: 10)
     plant1 = garden.plants.create!(name: 'daisy', edible: false, mature_height: 10)
-    
+
     visit "/plants/#{plant1.id}"
 
     expect(page).to have_content('Garden Index')

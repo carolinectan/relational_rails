@@ -40,4 +40,16 @@ RSpec.describe 'gardens show page' do
 
     page.has_xpath?('/gardens')
   end
+
+  it 'displays a link that takes you to the garden index' do
+    garden = Garden.create!(name: 'sample garden', irrigation: true, plant_capacity: 10)
+    plant1 = garden.plants.create!(name: 'daisy', edible: false, mature_height: 10)
+    visit "/gardens/#{garden.id}"
+
+    expect(page).to have_content("#{garden.name}'s Plants")
+
+    click_on("#{garden.name}'s Plants")
+
+    expect(current_path).to eq("/gardens/#{garden.id}/plants")
+  end
 end
