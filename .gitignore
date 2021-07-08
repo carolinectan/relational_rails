@@ -130,3 +130,5 @@ bower.json
 *.rar
 *.tar
 *.zip
+
+/coverage
