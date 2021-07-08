@@ -6,7 +6,7 @@ RSpec.describe 'farms index page', type: :feature do
     farm_2 = Farm.create!(name: 'Corn Farm', has_animals: false, num_of_fields: 15)
 
     visit '/farms'
-    # Then I see the name of each parent record in the system
+
     expect(page).to have_content(farm_1.name)
     expect(page).to have_content(farm_2.name)
   end

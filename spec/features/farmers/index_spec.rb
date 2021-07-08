@@ -9,7 +9,7 @@ RSpec.describe 'farmers index page', type: :feature do
     farmer_3 = farm.farmers.create!(name: 'Jason', age: 34, owns_land: false)
 
     visit '/farmers'
-    # Then I see each Child in the system including the Child's attributes:
+
     expect(page).to have_content(farmer_1.name)
     expect(page).to have_content(farmer_2.name)
     expect(page).to have_content(farmer_3.name)

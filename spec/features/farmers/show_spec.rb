@@ -10,8 +10,6 @@ RSpec.describe 'farmers index page', type: :feature do
     visit "/farmers/#{farmer_1.id}"
     save_and_open_page
 
-  # Then I see the child with that id including the child's attributes:
-
     expect(page).to have_content(farmer_1.name)
     expect(page).to have_content("Age: #{farmer_1.age}")
     expect(page).to have_content("Owns Land: #{farmer_1.owns_land}")
