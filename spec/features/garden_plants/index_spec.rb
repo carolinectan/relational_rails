@@ -7,6 +7,7 @@ RSpec.describe 'Garden Plants Index' do
     @plant2 = @garden.plants.create!(name: 'rose', edible: true, mature_height: 42)
     @plant3 = @garden.plants.create!(name: 'lily', edible: false, mature_height: 24)
   end
+
   it 'can display plants associated with garden' do
     visit ("/gardens/#{@garden.id}/plants")
 
@@ -29,31 +30,33 @@ RSpec.describe 'Garden Plants Index' do
     expect(page).to have_content(@plant3.mature_height)
   end
 
-  it 'displays a link that takes you to the plant index' do
-    visit ("/gardens/#{@garden.id}/plants")
+  describe "links" do
+    it 'takes you to the plant index' do
+      visit ("/gardens/#{@garden.id}/plants")
 
-    garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
-    garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
-    garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
+      garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
+      garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
+      garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
 
-    expect(page).to have_content('Plant Index')
+      expect(page).to have_content('Plant Index')
 
-    click_on('Plant Index')
+      click_on('Plant Index')
 
-    page.has_xpath?('/plants')
-  end
+      page.has_xpath?('/plants')
+    end
 
-  it 'displays a link that takes you to the garden index' do
-    visit ("/gardens/#{@garden.id}/plants")
+    it 'takes you to the garden index' do
+      visit ("/gardens/#{@garden.id}/plants")
 
-    garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
-    garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
-    garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
+      garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
+      garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
+      garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
 
-    expect(page).to have_content('Garden Index')
+      expect(page).to have_content('Garden Index')
 
-    click_on('Garden Index')
+      click_on('Garden Index')
 
-    page.has_xpath?('/gardens')
+      page.has_xpath?('/gardens')
+    end
   end
 end

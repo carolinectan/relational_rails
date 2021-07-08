@@ -23,23 +23,25 @@ RSpec.describe 'plants index page' do
 
   end
 
-  it 'displays a link that takes you to the plant index' do
-    visit "/plants"
+  describe "links" do
+    it 'takes you to the plant index' do
+      visit "/plants"
 
-    expect(page).to have_content('Plant Index')
+      expect(page).to have_content('Plant Index')
 
-    click_on('Plant Index')
+      click_on('Plant Index')
 
-    page.has_xpath?('/plants')
-  end
+      page.has_xpath?('/plants')
+    end
 
-  it 'displays a link that takes you to the garden index' do
-    visit "/plants"
+    it 'takes you to the garden index' do
+      visit "/plants"
 
-    expect(page).to have_content('Garden Index')
+      expect(page).to have_content('Garden Index')
 
-    click_on('Garden Index')
+      click_on('Garden Index')
 
-    page.has_xpath?('/gardens')
+      page.has_xpath?('/gardens')
+    end
   end
 end
