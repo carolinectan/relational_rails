@@ -18,7 +18,7 @@ RSpec.describe 'farms index page', type: :feature do
 
     visit '/farms'
 
-    expect(page).to have_content("#{farm_3.name}\n#{farm_2.name}\n#{farm_1.name}")
+    expect(page).to have_content("#{farm_3.name}\n(Created at: #{farm_3.created_at})\n#{farm_2.name}\n(Created at: #{farm_2.created_at})\n#{farm_1.name}\n(Created at: #{farm_1.created_at})")
   end
 
   it 'can display a navigation bar' do
