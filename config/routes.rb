@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   get '/farmers/:id', to: 'farmers#show'
 
   get '/farms/:id/farmers', to:"farm_farmers#index"
+
+  get '/plants', to: 'plants#index'
+  get '/gardens/:garden_id/plants', to: 'garden_plants#index'
+
+  get '/gardens/:id', to: 'gardens#show'
+  get '/plants/:id', to: 'plants#show'
 end

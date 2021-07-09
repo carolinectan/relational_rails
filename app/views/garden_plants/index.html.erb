@@ -1,0 +1,12 @@
+<nav>
+  <a href="/plants">Plant Index</a>
+  <a href="/gardens">Garden Index</a>
+</nav>
+
+<h1><%= @garden.name %></h1>
+
+<% @plants.each do |plant| %>
+  <h2><%= plant.name %></h2>
+  <p>Edible: <%= plant.edible %></p>
+  <p>Mature Height: <%= plant.mature_height %></p>
+<% end %>
