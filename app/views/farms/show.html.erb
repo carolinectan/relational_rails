@@ -1,0 +1,13 @@
+<nav>
+  <p><a href='/farms'>Farm Index</a></p>
+  <p><a href='/farmers'>Farmer Index</a></p>
+  <p><a href='/gardens'>Garden Index</a></p>
+  <p><a href='/plants'>Plants Index</a></p>
+</nav>
+
+<h1><%= @farm.name %></h1>
+
+<p>Has Animals: <%= @farm.has_animals %> </p>
+<p>Number of Fields: <%= @farm.num_of_fields %></p>
+
+<p>Number of Farmers: <a href="/farms/<%= @farm.id %>/farmers/"><%= @farm.farmers.length %></a></p>

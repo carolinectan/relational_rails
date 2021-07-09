@@ -5,8 +5,8 @@
   <p><a href='/plants'>Plants Index</a></p>
 </nav>
 
-<h1>All Gardens</h1>
+<h1>All Farmers</h1>
 
-<% @gardens.each do |garden| %>
-  <h3><a href='/gardens/<%= garden.id %>'><%= garden.name %></a> (<%= garden.created_at %>)</h3>
+<% @farmers.each do |farmer| %>
+  <h3><a href="/farmers/<%= farmer.id %>"><%= farmer.name %></a></h3>
 <% end %>
