@@ -21,7 +21,6 @@ RSpec.describe 'farm show page', type: :feature do
   it 'can display the number of children associated with a specific parent' do
     farm_1 = Farm.create!(name: 'Carrot Farm', has_animals: false, num_of_fields: 8)
     farm_2 = Farm.create!(name: 'Fish Farm', has_animals: true, num_of_fields: 15)
-
     farm_1.farmers.create!(name: 'Sami', age: 35, owns_land: true)
     farm_2.farmers.create!(name: 'Carina', age: 28, owns_land: true)
     farm_2.farmers.create!(name: 'Scott', age: 37, owns_land: false)

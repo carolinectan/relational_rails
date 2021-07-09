@@ -28,9 +28,9 @@ RSpec.describe 'farmers index page', type: :feature do
 
     visit "/farmers/#{farmer_2.id}"
 
-    expect(page).to have_link("Farm Index", :href => "/farms")
-    expect(page).to have_link("Farmer Index", :href => "/farmers")
-    expect(page).to have_link("Plants Index", :href => "/plants")
-    expect(page).to have_link("Garden Index", :href => "/gardens")
+    expect(page).to have_link('Farm Index', :href => '/farms')
+    expect(page).to have_link('Farmer Index', :href => '/farmers')
+    expect(page).to have_link('Plants Index', :href => '/plants')
+    expect(page).to have_link('Garden Index', :href => '/gardens')
   end
 end
