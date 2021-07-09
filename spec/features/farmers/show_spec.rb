@@ -19,4 +19,18 @@ RSpec.describe 'farmers index page', type: :feature do
     expect(page).to have_content("Age: #{farmer_2.age}")
     expect(page).to have_content("Owns Land: #{farmer_2.owns_land}")
   end
+
+  it 'can display a navigation bar' do
+    farm = Farm.create!(name: 'Sheep Farm', has_animals: true, num_of_fields: 8)
+
+    farmer_1 = farm.farmers.create!(name: 'Amanda', age: 30, owns_land: true)
+    farmer_2 = farm.farmers.create!(name: 'Carina', age: 26, owns_land: false)
+
+    visit "/farmers/#{farmer_2.id}"
+
+    expect(page).to have_link("Farm Index", :href => "/farms")
+    expect(page).to have_link("Farmer Index", :href => "/farmers")
+    expect(page).to have_link("Plants Index", :href => "/plants")
+    expect(page).to have_link("Garden Index", :href => "/gardens")
+  end
 end
