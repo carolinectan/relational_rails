@@ -14,7 +14,7 @@ RSpec.describe 'the Farm creation' do
 
     fill_in('name', with: 'Coconut Tree Farm')
     fill_in('has_animals', with: false)
-    fill_in('num_of_farmers', with: '42')
+    fill_in('num_of_fields', with: '42')
     click_button('Create Farm')
 
     expect(current_path).to eq("/farms")
