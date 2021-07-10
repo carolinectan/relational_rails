@@ -18,4 +18,7 @@ class FarmsController < ApplicationController
   def farm_params
     params.permit(:name, :has_animals, :num_of_fields)
   end
+ 
+  def edit
+  end
 end
