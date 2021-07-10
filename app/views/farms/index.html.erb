@@ -10,7 +10,8 @@
 <% @farms.each do |farm| %>
   <h3><a href="/farms/<%= farm.id %>"><%= farm.name %></a></h3>
   <p>(Created at: <%= farm.created_at %>)</p>
-  <%= button_to "Update #{farm.name}", "/farms/#{farm.id}", method: :get %>
+  <%= button_to "Update #{farm.name}", "/farms/#{farm.id}", method: :get %><br>
+  <%= button_to "Delete #{farm.name}", "/farms/#{farm.id}", method: :delete %>
 <% end %>
 <br>
 <button><%= link_to "New Farm", "/farms/new" %></button>
