@@ -52,5 +52,14 @@ RSpec.describe 'gardens show page' do
 
       expect(current_path).to eq("/gardens/#{garden.id}/plants")
     end
+
+    it 'takes you to edit the garden' do
+      garden = Garden.create!(name: 'sample garden', irrigation: true, plant_capacity: 10)
+
+      visit "/gardens/#{garden.id}"
+
+      click_button("Edit Garden")
+      expect(current_path).to eq("/gardens/#{garden.id}/edit")
+    end
   end
 end
