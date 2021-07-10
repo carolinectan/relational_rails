@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   def index
-    @gardens = Garden.order('created_at DESC')
+    @gardens = Garden.sort_descending
   end
 
   def show
