@@ -6,6 +6,7 @@
 </nav>
 
 <h1>All Gardens</h1>
+<%= button_to "Add New Garden", "/gardens/new", method: :get %>
 
 <% @gardens.each do |garden| %>
   <h3><a href='/gardens/<%= garden.id %>'><%= garden.name %></a> (<%= garden.created_at %>)</h3>

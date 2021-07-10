@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/gardens', to: 'gardens#index'
+  get '/gardens/new', to: 'gardens#new'
+  get '/gardens/:id', to: 'gardens#show'
+  post '/gardens', to: 'gardens#create'
 
   get '/farms', to: 'farms#index'
   get '/farms/:id', to: 'farms#show'
@@ -13,8 +16,11 @@ Rails.application.routes.draw do
   get '/farms/:id/farmers', to:"farm_farmers#index"
 
   get '/plants', to: 'plants#index'
+  get '/plants/:id', to: 'plants#show'
   get '/gardens/:garden_id/plants', to: 'garden_plants#index'
 
-  get '/gardens/:id', to: 'gardens#show'
-  get '/plants/:id', to: 'plants#show'
+
+
+
+
 end

@@ -6,7 +6,7 @@ RSpec.describe 'gardens index page' do
     @garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
     @garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
   end
-  
+
   it 'displays all garden names' do
     visit "/gardens"
 
@@ -42,6 +42,13 @@ RSpec.describe 'gardens index page' do
       click_on('Garden Index')
 
       page.has_xpath?('/gardens')
+    end
+
+    it 'takes you to a new parent form' do
+      visit "/gardens"
+
+      click_button('Add New Garden')
+      expect(current_path).to eq('/gardens/new')
     end
   end
 end
