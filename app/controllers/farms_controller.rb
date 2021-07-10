@@ -9,4 +9,9 @@ class FarmsController < ApplicationController
 
   def new
   end
+
+  def create
+    farm = Farm.create(name: params[:name])
+    redirect_to "/farms"
+  end
 end

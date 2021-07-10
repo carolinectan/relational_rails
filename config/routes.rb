@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/farms', to: 'farms#index'
   get '/farms/new',  to: 'farms#new'
+  post '/farms', to: 'farms#create'
   get '/farms/:id', to: 'farms#show'
 
   get '/farmers', to: 'farmers#index'
