@@ -12,3 +12,5 @@
 <p>Number of Farmers: <a href="/farms/<%= @farm.id %>/farmers/"><%= @farm.farmers.length %></a></p>
 
 <%= button_to "Update #{@farm.name}", "/farms/#{@farm.id}/edit", method: :get %>
+<br>
+<%= button_to "Delete #{@farm.name}", "/farms/#{@farm.id}", method: :delete %>
