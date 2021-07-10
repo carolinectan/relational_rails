@@ -10,8 +10,9 @@ RSpec.describe 'create new garden' do
       page.check('irrigation')
 
       click_button('Add Garden')
-      save_and_open_page
       expect(current_path).to eq('/gardens')
+
+      expect(page).to have_content("test")
     end
   end
 end
