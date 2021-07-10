@@ -15,10 +15,6 @@ class FarmsController < ApplicationController
     redirect_to "/farms"
   end
 
-  def farm_params
-    params.permit(:name, :has_animals, :num_of_fields)
-  end
-
   def edit
     @farm = Farm.find(params[:id])
   end
@@ -27,5 +23,10 @@ class FarmsController < ApplicationController
     farm = Farm.find(params[:id])
     farm.update(farm_params)
     redirect_to "/farms/#{farm.id}"
+  end
+
+private
+  def farm_params
+    params.permit(:name, :has_animals, :num_of_fields)
   end
 end
