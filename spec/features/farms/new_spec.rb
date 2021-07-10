@@ -7,13 +7,18 @@ RSpec.describe 'the Farm creation' do
     click_link('New Farm')
 
     expect(current_path).to eq('/farms/new')
+  end
 
-    # Then I am taken to '/parents/new' where I  see a form for a new parent record
-    # When I fill out the form with a new parent's attributes:
-    # And I click the button "Create Parent" to submit the form
-    # Then a `POST` request is sent to the '/parents' route,
-    # a new parent record is created,
-    # and I am redirected to the Parent Index page where I see the new Parent displayed.
+  it 'can create a new farm' do
+    visit '/farms/new'
 
+    fill_in('name', with: 'Coconut Tree Farm')
+    fill_in('has_animals', with: false)
+    fill_in('num_of_farmers', with: '42')
+    click_button('Create Farm')
+
+    expect(current_path).to eq("/farms")
+    save_and_open_page
+    expect(page).to have_content("Coconut Tree Farm\n(Created at: #{Farm.last.created_at})")
   end
 end
