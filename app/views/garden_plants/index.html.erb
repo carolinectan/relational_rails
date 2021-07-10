@@ -10,3 +10,5 @@
   <p>Edible: <%= plant.edible %></p>
   <p>Mature Height: <%= plant.mature_height %></p>
 <% end %>
+
+<%= button_to "Add New Plant", "/gardens/#{@garden.id}/plants/new", method: :get %>
