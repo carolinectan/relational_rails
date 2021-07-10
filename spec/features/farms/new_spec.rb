@@ -18,7 +18,6 @@ RSpec.describe 'the Farm creation' do
     click_button('Create Farm')
 
     expect(current_path).to eq("/farms")
-    save_and_open_page
     expect(page).to have_content("Coconut Tree Farm\n(Created at: #{Farm.last.created_at})")
   end
 end
