@@ -9,5 +9,7 @@
 
 <% @farmers.each do |farmer| %>
   <h3><a href="/farmers/<%= farmer.id %>"><%= farmer.name %></a></h3>
-  <%= button_to "Delete #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
+  <p>Owns Land: <%= farmer.owns_land %></p>
+  <p>Age: <%= farmer.age %></p>
+  <%= button_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
 <% end %>
