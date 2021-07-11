@@ -30,6 +30,10 @@ bonsai_garden.plants.create!(name: 'chinese elm', edible: false, mature_height: 
 strawberry_farm = Farm.create!(name: 'Strawberry Farm', has_animals: false, num_of_fields: 22)
 llama_farm = Farm.create!(name: 'Llama Farm', has_animals: true, num_of_fields: 5)
 vegetable_farm = Farm.create!(name: 'Vegetable Farm', has_animals: false, num_of_fields: 68)
+sheep_farm = Farm.create!(name: 'Sheep Farm', has_animals: true, num_of_fields: 16)
+sunflower_farm = Farm.create!(name: 'Sunflower Farm', has_animals: false, num_of_fields: 34)
+strawberry_farm = Farm.create!(name: 'Strawberry Farm', has_animals: false, num_of_fields: 108)
+chicken_farm = Farm.create!(name: 'Chicken Farm', has_animals: true, num_of_fields: 13)
 
 strawberry_farm.farmers.create!(name: 'Joann', age: 42, owns_land: true)
 strawberry_farm.farmers.create!(name: 'Sal', age: 64, owns_land: true)
@@ -43,3 +47,20 @@ llama_farm.farmers.create!(name: 'Amanda', age: 30, owns_land: true)
 vegetable_farm.farmers.create!(name: 'Vernon', age: 50, owns_land: true)
 vegetable_farm.farmers.create!(name: 'Nancy', age: 34, owns_land: false)
 vegetable_farm.farmers.create!(name: 'Peter', age: 47, owns_land: true)
+
+sheep_farm.farmers.create!(name: 'Barbara', age: 63, owns_land: true)
+sheep_farm.farmers.create!(name: 'Barnabus', age: 42, owns_land: true)
+sheep_farm.farmers.create!(name: 'Bart', age: 58, owns_land: true)
+
+sunflower_farm.farmers.create!(name: 'Frankie', age: 24, owns_land: false)
+sunflower_farm.farmers.create!(name: 'Felipe', age: 56, owns_land: true)
+sunflower_farm.farmers.create!(name: 'Fernando', age: 49, owns_land: true)
+
+strawberry_farm.farmers.create!(name: 'Stacy', age: 84, owns_land: true)
+strawberry_farm.farmers.create!(name: 'Sharon', age: 55, owns_land: false)
+strawberry_farm.farmers.create!(name: 'Stevie', age: 30, owns_land: true)
+
+chicken_farm.farmers.create!(name: 'Charles', age: 59, owns_land: true)
+chicken_farm.farmers.create!(name: 'Chrissy', age: 22, owns_land: true)
+chicken_farm.farmers.create!(name: 'Cameron', age: 59, owns_land: true)
+chicken_farm.farmers.create!(name: 'Candy', age: 33, owns_land: false)
