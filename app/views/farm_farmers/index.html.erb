@@ -8,5 +8,7 @@
 <h1><%= @farm.name %>'s Farmers</h1>
 
 <% @farmers.each do |farmer| %>
-  <p><%= farmer.name %></p>
+  <h3><%= farmer.name %></h3>
+  <p>Age: <%= farmer.age %></p>
+  <p>Owns Land: <%= farmer.owns_land %></p>
 <% end %>
