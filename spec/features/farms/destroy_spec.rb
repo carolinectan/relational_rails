@@ -8,6 +8,9 @@ RSpec.describe 'destroying a farm' do
     @farm_1 = Farm.create!(name: 'Sheep Farm', has_animals: true, num_of_fields: 8)
     @farm_2 = Farm.create!(name: 'Corn Farm', has_animals: false, num_of_fields: 15)
     @farm_3 = Farm.create!(name: 'Alpaca Farm', has_animals: false, num_of_fields: 55)
+
+    @farmer_1 = @farm_1.farmers.create!(name: 'Amanda', age: 30, owns_land: true)
+    @farmer_2 = @farm_1.farmers.create!(name: 'Carina', age: 26, owns_land: true)
   end
 
   it 'can delete the farm from the index page' do
