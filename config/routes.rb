@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/farmers', to: 'farmers#index'
   get '/farmers/:id', to: 'farmers#show'
+  delete '/farmers/:id', to: 'farmers#destroy'
 
   get '/farms/:id/farmers', to:"farm_farmers#index"
 
