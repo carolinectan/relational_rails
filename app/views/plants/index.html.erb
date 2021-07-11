@@ -7,6 +7,7 @@
 
 <% @plants.each do |plant| %>
   <h3><%= plant.name %></h3>
+  <a href="plants/<%= plant.id %>/edit">Edit <%= plant.name %></a>
   <p>Edible: <%= plant.edible %></p>
   <p>Mature Height: <%= plant.mature_height %></p>
 <% end %>

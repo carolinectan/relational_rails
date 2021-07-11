@@ -54,5 +54,12 @@ RSpec.describe 'plants index page' do
 
       page.has_xpath?('/gardens')
     end
+
+    it 'takes you to edit a plant' do
+      visit "/plants"
+
+      click_on("Edit #{@plant2.name}")
+      expect(current_path).to eq("/plants/#{@plant2.id}/edit")
+    end
   end
 end
