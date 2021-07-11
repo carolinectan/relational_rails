@@ -67,5 +67,12 @@ RSpec.describe 'Garden Plants Index' do
       expect('daisy').to appear_before('lily', only_text: true)
       expect('lily').to appear_before('rose', only_text: true)
     end
+
+    it 'takes you to edit a plant' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      click_on("Edit #{@plant2.name}")
+      expect(current_path).to eq("/plants/#{@plant2.id}/edit")
+    end
   end
 end
