@@ -1,7 +1,8 @@
 <h1>All Farmers</h1>
 
 <% @farmers.each do |farmer| %>
-  <h3><a href="/farmers/<%= farmer.id %>"><%= farmer.name %></a></h3>
+  <h3><%= link_to "#{farmer.name}", "/farmers/#{farmer.id}"%></h3>
+
   <p>Owns Land: <%= farmer.owns_land %></p>
   <p>Age: <%= farmer.age %></p>
   <%= button_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
