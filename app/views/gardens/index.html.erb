@@ -10,4 +10,5 @@
 
 <% @gardens.each do |garden| %>
   <h3><a href='/gardens/<%= garden.id %>'><%= garden.name %></a> (<%= garden.created_at %>)</h3>
+  <a href="gardens/<%= garden.id %>/edit">Edit <%= garden.name  %></a>
 <% end %>

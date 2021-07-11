@@ -50,5 +50,12 @@ RSpec.describe 'gardens index page' do
       click_button('Add New Garden')
       expect(current_path).to eq('/gardens/new')
     end
+
+    it 'takes you to edit a garden' do
+      visit "/gardens"
+
+      click_on("Edit #{@garden1.name}")
+      expect(current_path).to eq("/gardens/#{@garden1.id}/edit")
+    end
   end
 end
