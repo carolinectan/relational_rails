@@ -25,6 +25,13 @@ RSpec.describe 'destroying a farm' do
   end
 
   it 'can delete the farm from the show page' do
+    visit "/farms/#{@farm_1.id}/farmers"
+
+    expect(page).to have_content("#{@farmer_1.name}\nAge: #{
+      @farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
+    expect(page).to have_content("#{@farmer_2.name}\nAge: #{
+      @farmer_2.age}\nOwns Land: #{@farmer_2.owns_land}")
+
     visit "/farms/#{@farm_1.id}"
 
     click_button "Delete #{@farm_1.name}"
@@ -33,5 +40,12 @@ RSpec.describe 'destroying a farm' do
     expect(page).to_not have_content("#{@farm_1.name}")
     expect(page).to have_content("#{@farm_2.name}")
     expect(page).to have_content("#{@farm_3.name}")
+
+    visit "/farmers"
+
+    expect(page).to_not have_content("#{@farmer_1.name}\nAge: #{
+      @farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
+    expect(page).to_not have_content("#{@farmer_2.name}\nAge: #{
+      @farmer_2.age}\nOwns Land: #{@farmer_2.owns_land}")
   end
 end
