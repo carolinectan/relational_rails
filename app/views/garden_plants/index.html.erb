@@ -5,6 +5,7 @@
 
 <h1><%= @garden.name %></h1>
 
+<%= link_to "sort by name", "/gardens/#{@garden.id}/plants?sort=alpha" %>
 <% @plants.each do |plant| %>
   <h2><%= plant.name %></h2>
   <p>Edible: <%= plant.edible %></p>

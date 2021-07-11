@@ -6,21 +6,32 @@ RSpec.describe 'plants index page' do
 
     @plant1 = @garden.plants.create!(name: 'daisy', edible: false, mature_height: 10)
     @plant2 = @garden.plants.create!(name: 'rose', edible: true, mature_height: 42)
-    @plant3 = @garden.plants.create!(name: 'lily', edible: false, mature_height: 24)
+    @plant3 = @garden.plants.create!(name: 'Parsley', edible: true, mature_height: 16)
+    @plant4 = @garden.plants.create!(name: 'Poison Oak', edible: false, mature_height: 22)
   end
+
   it 'displays all plant names' do
     visit "/plants"
 
-    expect(page).to have_content(@plant1.name)
     expect(page).to have_content(@plant2.name)
     expect(page).to have_content(@plant3.name)
 
-    expect(page).to have_content(@plant1.edible)
     expect(page).to have_content(@plant2.edible)
+    expect(page).to have_content(@plant3.edible)
 
     expect(page).to have_content(@plant2.mature_height)
     expect(page).to have_content(@plant3.mature_height)
 
+  end
+
+  it 'only displays plants with edible: true' do
+    visit "/plants"
+
+    expect(page).to have_content(@plant2.name)
+    expect(page).to have_content(@plant3.name)
+
+    expect(page).to_not have_content(@plant1.name)
+    expect(page).to_not have_content(@plant4.name)
   end
 
   describe "links" do

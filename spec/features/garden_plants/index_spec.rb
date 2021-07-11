@@ -57,5 +57,15 @@ RSpec.describe 'Garden Plants Index' do
       click_on('Add New Plant')
       expect(current_path).to eq("/gardens/#{@garden.id}/plants/new")
     end
+
+    it 'can display plants in alphabetical order' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      click_on('sort by name')
+      expect(current_path).to eq("/gardens/#{@garden.id}/plants")
+
+      expect('daisy').to appear_before('lily', only_text: true)
+      expect('lily').to appear_before('rose', only_text: true)
+    end
   end
 end
