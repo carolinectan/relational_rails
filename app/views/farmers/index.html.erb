@@ -1,12 +1,10 @@
-<nav>
-  <p><a href='/farms'>Farm Index</a></p>
-  <p><a href='/farmers'>Farmer Index</a></p>
-  <p><a href='/gardens'>Garden Index</a></p>
-  <p><a href='/plants'>Plants Index</a></p>
-</nav>
-
 <h1>All Farmers</h1>
 
 <% @farmers.each do |farmer| %>
-  <h3><a href="/farmers/<%= farmer.id %>"><%= farmer.name %></a></h3>
+  <div class="index-item">
+  <h3><%= link_to "#{farmer.name}", "/farmers/#{farmer.id}"%></h3>
+  <p>Age: <%= farmer.age %></p>
+  <p>Owns Land: <%= farmer.owns_land %></p>
+  <%= button_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
+  </div>
 <% end %>
