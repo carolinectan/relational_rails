@@ -3,6 +3,16 @@ class FarmersController < ApplicationController
     @farmers = Farmer.all
   end
 
+  def new
+    @farm = Farm.find(params[:farm_id])
+  end
+
+  def create
+    farm = Farm.find(params[:farm_id])
+    farmer = farm.farmers.create!(farmer_params)
+    redirect_to "/farms/#{farm.id}/farmers"
+  end
+
   def show
     @farmer = Farmer.find(params[:id])
   end

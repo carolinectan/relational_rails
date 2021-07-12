@@ -12,6 +12,14 @@ RSpec.describe 'the farm farmer creation' do
     @farmer_3 = @farm.farmers.create!(name: 'Jason', age: 34, owns_land: false)
   end
 
+  it 'can link to the new farmer page' do
+    visit "/farms/#{@farm.id}/farmers"
+save_and_open_page
+    click_button("Create New Farmer")
+
+    expect(current_path).to eq("/farms/#{@farm.id}/farmers/new")
+  end
+
   it 'can add a new farm from the farm farmers index page' do
     visit "/farms/#{@farm.id}/farmers/new"
 

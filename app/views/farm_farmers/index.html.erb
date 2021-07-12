@@ -1,6 +1,6 @@
 <h1><%= @farm.name %>'s Farmers</h1>
 
-<%= button_to "Create New Farmer", "/farmers/new", method: :get %>
+<%= button_to "Create New Farmer", "/farms/#{@farm.id}/farmers/new", method: :get %>
 
 <% @farmers.each do |farmer| %>
   <h3><%= farmer.name %></h3>
