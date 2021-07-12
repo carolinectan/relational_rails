@@ -1,13 +1,8 @@
-<nav>
-  <a href="/plants">Plant Index</a>
-  <a href="/gardens">Garden Index</a>
-  <a href="/gardens/<%= @garden.id %>/plants"><%= @garden.name  %>'s Plants </a>
-</nav>
-
-
 <h1><%= @garden.name  %></h1>
 
 <p>Has Irrigation: <%= @garden.irrigation  %></p>
 <p>Plant Capacity: <%= @garden.plant_capacity %></p>
 <p>Total Plants: <%= @count %></p>
 <%= button_to "Edit Garden", "/gardens/#{@garden.id}/edit", method: :get %>
+
+<a href="/gardens/<%= @garden.id %>/plants"><%= @garden.name  %>'s Plants </a>

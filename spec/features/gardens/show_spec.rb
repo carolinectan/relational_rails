@@ -24,9 +24,9 @@ RSpec.describe 'gardens show page' do
     it 'takes you to the plant index' do
       visit "/gardens/#{@garden.id}"
 
-      expect(page).to have_content('Plant Index')
+      expect(page).to have_content('Plants Index')
 
-      click_on('Plant Index')
+      click_on('Plants Index')
 
       page.has_xpath?('/plants')
     end

@@ -33,9 +33,9 @@ RSpec.describe 'plants show page' do
 
       visit "/plants/#{plant1.id}"
 
-      expect(page).to have_content('Plant Index')
+      expect(page).to have_content('Plants Index')
 
-      click_on('Plant Index')
+      click_on('Plants Index')
 
       page.has_xpath?('/plants')
     end
