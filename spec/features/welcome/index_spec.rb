@@ -6,7 +6,7 @@ RSpec.describe 'welcome page index' do
 
     expect(page).to have_link('Farm Index', :href => '/farms')
     expect(page).to have_link('Farmer Index', :href => '/farmers')
-    expect(page).to have_link('Plants Index', :href => '/plants')
+    expect(page).to have_link('Plant Index', :href => '/plants')
     expect(page).to have_link('Garden Index', :href => '/gardens')
   end
 end
