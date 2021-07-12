@@ -6,7 +6,7 @@ RSpec.describe 'gardens index page' do
     @garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
     @garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
   end
-  
+
   it 'displays all garden names' do
     visit "/gardens"
 
@@ -27,9 +27,9 @@ RSpec.describe 'gardens index page' do
     it 'takes you to the plant index' do
       visit "/gardens"
 
-      expect(page).to have_content('Plant Index')
+      expect(page).to have_content('Plants Index')
 
-      click_on('Plant Index')
+      click_on('Plants Index')
 
       page.has_xpath?('/plants')
     end
@@ -42,6 +42,20 @@ RSpec.describe 'gardens index page' do
       click_on('Garden Index')
 
       page.has_xpath?('/gardens')
+    end
+
+    it 'takes you to a new parent form' do
+      visit "/gardens"
+
+      click_button('Add New Garden')
+      expect(current_path).to eq('/gardens/new')
+    end
+
+    it 'takes you to edit a garden' do
+      visit "/gardens"
+
+      click_on("Edit #{@garden1.name}")
+      expect(current_path).to eq("/gardens/#{@garden1.id}/edit")
     end
   end
 end

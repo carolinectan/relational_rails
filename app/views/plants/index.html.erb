@@ -1,7 +1,10 @@
 <h1>All Plants</h1>
 
 <% @plants.each do |plant| %>
+<div class="index-item">
   <h3><%= plant.name %></h3>
+  <a href="plants/<%= plant.id %>/edit">Edit <%= plant.name %></a>
   <p>Edible: <%= plant.edible %></p>
   <p>Mature Height: <%= plant.mature_height %></p>
+</div>
 <% end %>

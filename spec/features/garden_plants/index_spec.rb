@@ -34,13 +34,9 @@ RSpec.describe 'Garden Plants Index' do
     it 'takes you to the plant index' do
       visit ("/gardens/#{@garden.id}/plants")
 
-      garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
-      garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
-      garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
+      expect(page).to have_content('Plants Index')
 
-      expect(page).to have_content('Plant Index')
-
-      click_on('Plant Index')
+      click_on('Plants Index')
 
       page.has_xpath?('/plants')
     end
@@ -48,15 +44,35 @@ RSpec.describe 'Garden Plants Index' do
     it 'takes you to the garden index' do
       visit ("/gardens/#{@garden.id}/plants")
 
-      garden1 = Garden.create!(name: 'last garden', irrigation: true, plant_capacity: 5)
-      garden2 = Garden.create!(name: 'middle garden', irrigation: false, plant_capacity: 6)
-      garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
-
       expect(page).to have_content('Garden Index')
 
       click_on('Garden Index')
 
       page.has_xpath?('/gardens')
+    end
+
+    it 'takes you to create a new plant child' do
+      visit ("/gardens/#{@garden.id}/plants")
+
+      click_on('Add New Plant')
+      expect(current_path).to eq("/gardens/#{@garden.id}/plants/new")
+    end
+
+    it 'can display plants in alphabetical order' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      click_on('sort by name')
+      expect(current_path).to eq("/gardens/#{@garden.id}/plants")
+
+      expect('daisy').to appear_before('lily', only_text: true)
+      expect('lily').to appear_before('rose', only_text: true)
+    end
+
+    it 'takes you to edit a plant' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      click_on("Edit #{@plant2.name}")
+      expect(current_path).to eq("/plants/#{@plant2.id}/edit")
     end
   end
 end

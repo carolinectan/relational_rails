@@ -33,9 +33,9 @@ RSpec.describe 'plants show page' do
 
       visit "/plants/#{plant1.id}"
 
-      expect(page).to have_content('Plant Index')
+      expect(page).to have_content('Plants Index')
 
-      click_on('Plant Index')
+      click_on('Plants Index')
 
       page.has_xpath?('/plants')
     end
@@ -51,6 +51,16 @@ RSpec.describe 'plants show page' do
       click_on('Garden Index')
 
       page.has_xpath?('/gardens')
+    end
+
+    it 'takes you to edit the garden' do
+      garden = Garden.create!(name: 'sample garden', irrigation: true, plant_capacity: 10)
+      plant1 = garden.plants.create!(name: 'daisy', edible: false, mature_height: 10)
+
+      visit "/plants/#{plant1.id}"
+
+      click_button("Edit Plant")
+      expect(current_path).to eq("/plants/#{plant1.id}/edit")
     end
   end
 end
