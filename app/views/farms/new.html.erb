@@ -1,0 +1,9 @@
+<%= form_with url: '/farms', method: :post, local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :has_animals %><br>
+  <%= form.text_field :has_animals %><br><br>
+  <%= form.label :num_of_fields %><br>
+  <%= form.text_field :num_of_fields %><br><br>
+  <%= form.submit "Create New Farm" %>
+<% end %>

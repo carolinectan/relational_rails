@@ -1,13 +1,12 @@
-<nav>
-  <p><a href='/farms'>Farm Index</a></p>
-  <p><a href='/farmers'>Farmer Index</a></p>
-  <p><a href='/gardens'>Garden Index</a></p>
-  <p><a href='/plants'>Plants Index</a></p>
-</nav>
-
 <h1>All Farms</h1>
 
+<%= button_to "Create New Farm", "/farms/new", method: :get %>
+
 <% @farms.each do |farm| %>
-  <h3><a href="/farms/<%= farm.id %>"><%= farm.name %></a></h3>
+  <div class="index-item">
+  <h3><%= link_to "#{farm.name}", "/farms/#{farm.id}" %></h3>
   <p>(Created at: <%= farm.created_at %>)</p>
+  <%= button_to "Update #{farm.name}", "/farms/#{farm.id}", method: :get %><br>
+  <%= button_to "Delete #{farm.name}", "/farms/#{farm.id}", method: :delete %>
+  </div>
 <% end %>
