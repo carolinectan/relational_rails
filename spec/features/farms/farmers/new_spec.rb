@@ -14,7 +14,7 @@ RSpec.describe 'the farm farmer creation' do
 
   it 'can link to the new farmer page' do
     visit "/farms/#{@farm.id}/farmers"
-save_and_open_page
+
     click_button("Create New Farmer")
 
     expect(current_path).to eq("/farms/#{@farm.id}/farmers/new")
