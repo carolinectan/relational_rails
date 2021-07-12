@@ -4,5 +4,5 @@
 <p>Plant Capacity: <%= @garden.plant_capacity %></p>
 <p>Total Plants: <%= @count %></p>
 <%= button_to "Edit Garden", "/gardens/#{@garden.id}/edit", method: :get %>
+<%= link_to "#{@garden.name}'s Plants" "/gardens/@garden.id/plants" %>
 
-<a href="/gardens/<%= @garden.id %>/plants"><%= @garden.name  %>'s Plants </a>
