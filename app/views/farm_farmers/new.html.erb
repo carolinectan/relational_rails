@@ -1,0 +1,10 @@
+<%= form_with url: "/farms/#{@farm.id}/farmers", method: :post, local: true do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :age %><br>
+  <%= form.text_field :age %><br><br>
+  <%= form.label :owns_land %><br>
+  <%= form.text_field :owns_land %><br><br>
+
+  <%= form.submit "Create New Farmer" %>
+<% end %>

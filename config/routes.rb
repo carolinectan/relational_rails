@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'welcome#index'
 
-  get '/gardens', to: 'gardens#index'
-
   get '/farms', to: 'farms#index'
   get '/farms/new',  to: 'farms#new'
   post '/farms', to: 'farms#create'
@@ -13,11 +11,19 @@ Rails.application.routes.draw do
   delete '/farms/:id', to: 'farms#destroy'
 
   get '/farmers', to: 'farmers#index'
+  # get '/farmers/new',  to: 'farmers#new'
+  # post '/farmers', to: 'farmers#create'
   get '/farmers/:id', to: 'farmers#show'
+  get '/farmers/:id/edit', to: 'farmers#edit'
+  patch '/farmers/:id', to: 'farmers#update'
   delete '/farmers/:id', to: 'farmers#destroy'
 
-  get '/farms/:id/farmers', to: "farm_farmers#index"
-  delete '/farms/:id/farmers', to: "farm_farmers#destroy"
+  get '/farms/:farm_id/farmers', to: "farm_farmers#index"
+  delete '/farms/:farm_id/farmers', to: "farm_farmers#destroy"
+  get '/farms/:farm_id/farmers/new',  to: 'farm_farmers#new'
+  post '/farms/:farm_id/farmers', to: 'farm_farmers#create'
+
+  get '/gardens', to: 'gardens#index'
 
   get '/plants', to: 'plants#index'
   get '/gardens/:garden_id/plants', to: 'garden_plants#index'

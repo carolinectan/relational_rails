@@ -2,4 +2,6 @@
 
 <p>Age: <%= @farmer.age %></p>
 <p>Owns Land: <%= @farmer.owns_land %></p>
+<%= button_to "Update Farmer #{@farmer.name}", "/farmers/#{@farmer.id}", method: :delete %>
+<br>
 <%= button_to "Delete Farmer #{@farmer.name}", "/farmers/#{@farmer.id}", method: :delete %>
