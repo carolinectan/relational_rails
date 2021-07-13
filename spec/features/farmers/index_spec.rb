@@ -12,19 +12,11 @@ RSpec.describe 'farmers index page', type: :feature do
     @farmer_3 = @farm.farmers.create!(name: 'Jason', age: 34, owns_land: false)
   end
 
-  it 'can display a farmers and its attributes' do
+  it 'can display a farmers and its attributes ONLY if owns_land == true' do
     visit '/farmers'
-  
+
     expect(page).to have_content("#{@farmer_1.name}\nAge: #{@farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
     expect(page).to have_content("#{@farmer_2.name}\nAge: #{@farmer_2.age}\nOwns Land: #{@farmer_2.owns_land}")
-    expect(page).to have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age}\nOwns Land: #{@farmer_3.owns_land}")
+    expect(page).to_not have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age}\nOwns Land: #{@farmer_3.owns_land}")
   end
-
-  xit 'can dispaly farmers ONLY if owns_land == true' do
-    visit '/farmers'
-
-    expect(page).to have_content()
-    # Then I only see records where the boolean column is `true`
-  end
-
 end
