@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   post '/gardens', to: 'gardens#create'
   get '/gardens/:id/edit', to: 'gardens#edit'
   patch '/gardens/:id', to: 'gardens#update'
+  delete '/gardens/:id', to: 'gardens#delete'
 
   get '/plants', to: 'plants#index'
   get '/plants/:id', to: 'plants#show'
   get '/plants/:id/edit', to: 'plants#edit'
   patch '/plants/:id', to: 'plants#update'
+  delete '/plants/:id', to: 'plants#delete'
 
   get '/gardens/:garden_id/plants', to: 'garden_plants#index'
   get '/gardens/:garden_id/plants/new', to: 'garden_plants#new'

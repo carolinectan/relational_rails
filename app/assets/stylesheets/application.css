@@ -23,11 +23,14 @@
  body {
    background-color: #C3E09F;
    display: block;
+   padding: 10px;
  }
 
  nav {
    background-color: #535FA6;
-   padding: 10px;
+   display: flex;
+   justify-content: space-around;
+   padding: 5px;
    width: 100%;
    position: fixed;
    top: 0;
@@ -37,6 +40,7 @@
  }
  nav a {
    color: snow;
+   background-color: #535FA6;
  }
 
 h1 {
@@ -50,7 +54,8 @@ h1 {
 }
 
 h2 {
-  margin: 5px auto;
+  margin: 2px auto;
+  padding: 2px;
   width: 80%;
   display: block;
   text-align: center;
@@ -59,30 +64,34 @@ h2 {
 }
 
 h3 {
-  margin: 5px auto;
-  width: 100%;
-  display: block;
+  display: flex;
+  padding: 2px;
+  justify-content: center;
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.2em;
   text-transform: capitalize;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 h3 a{
-  margin: 5px auto;
-  width: 100%;
-  display: block;
-  text-align: center;
+  margin: 2px auto;
+  padding: 2px;
+  width: 80%;
   font-size: 1.2em;
   text-transform: capitalize;
+  background-color: #C3E09F;
 }
 
 p {
-  margin: 5px auto;
+  margin: 0px auto 20px auto;
   padding: 5px;
-  width: 100%;
+  width: 80%;
   display: block;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 a {
@@ -91,6 +100,7 @@ a {
   color: #535FA6;
   text-decoration: none;
   text-transform: capitalize;
+  border-radius: 5px;
 }
 
 a:hover {
@@ -103,30 +113,46 @@ html {
   text-align: center;
 }
 
+
 form {
-  display: block;
-  margin: 20px auto;
-  width: 60%;
-  background-color: #A7D370;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  margin: 25px auto;
+  padding: 15px;
+  width: 60%;
+  background-color: #F5F9EF;
+  border-radius: 10px
 }
 
 .index-item {
-  padding: 5px;
+  padding: 15px;
   display: block;
   margin: 15px auto;
   border: 2px solid #A7D370;
   border-radius: 10px;
-  width: 50%;
+  width: 60%;
 }
 
 .index-item a {
-  margin: 10px;
+  margin: 10px 10px;
   text-align: center;
+  border-radius: 5px;
 }
 
 button, label, input {
-  margin: 8px;
   padding: 6px;
   color: black;
+}
+
+label {
+  margin-bottom: 2px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+input {
+  margin: 5px;
+  width: 50%;
 }
