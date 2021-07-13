@@ -39,5 +39,6 @@ Rails.application.routes.draw do
   get '/farms/:farm_id/farmers/new',  to: 'farmers#new'
   post '/farms/:farm_id/farmers', to: 'farmers#create'
   get '/farms/:farm_id/farmers', to: "farm_farmers#index"
+
   delete '/farms/:farm_id/farmers', to: "farm_farmers#destroy"
 end

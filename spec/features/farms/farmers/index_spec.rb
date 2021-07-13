@@ -117,7 +117,6 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     click_button("Delete Farmer #{@farmer_1.name}")
 
     expect(current_path).to eq("/farmers")
-
     expect(page).to_not have_content("#{@farmer_1.name}")
   end
 end
