@@ -17,19 +17,42 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     @farmer_7 = @farm_2.farmers.create!(name: 'Jason', age: 34, owns_land: false)
   end
 
-  it "can display a specific farm's farmers and its attributes ONLY if owns_land == true" do
+  it "can display a specific farm's farmers ONLY if owns_land == true" do
     visit "/farms/#{@farm_1.id}/farmers"
 
-    expect(page).to have_content("#{@farmer_1.name}\nAge: #{@farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
-    expect(page).to have_content("#{@farmer_2.name}\nAge: #{@farmer_2.age}\nOwns Land: #{@farmer_2.owns_land}")
-    expect(page).to_not have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age}\nOwns Land: #{@farmer_3.owns_land}")
+    expect(page).to have_content("#{@farm_1.name}")
+    expect(page).to have_content("#{@farmer_1.name}")
+    expect(page).to have_content("#{@farmer_2.name}")
+    expect(page).to_not have_content("#{@farmer_3.name}")
 
     visit "/farms/#{@farm_2.id}/farmers"
 
-    expect(page).to have_content("#{@farmer_4.name}\nAge: #{@farmer_4.age}\nOwns Land: #{@farmer_4.owns_land}")
-    expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age}\nOwns Land: #{@farmer_5.owns_land}")
-    expect(page).to have_content("#{@farmer_6.name}\nAge: #{@farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}")
-    expect(page).to_not have_content("#{@farmer_7.name}\nAge: #{@farmer_7.age}\nOwns Land: #{@farmer_7.owns_land}")
+    expect(page).to have_content("#{@farmer_4.name}")
+    expect(page).to have_content("#{@farmer_5.name}")
+    expect(page).to have_content("#{@farmer_6.name}")
+    expect(page).to_not have_content("#{@farmer_7.name}")
+  end
+
+   it "can display all farmers' attributes" do
+    visit "/farms/#{@farm_1.id}/farmers"
+
+    expect(page).to have_content("#{@farmer_1.name}\nAge: #{@farmer_1.age
+      }\nOwns Land: #{@farmer_1.owns_land}")
+    expect(page).to have_content("#{@farmer_2.name}\nAge: #{@farmer_2.age
+      }\nOwns Land: #{@farmer_2.owns_land}")
+    expect(page).to_not have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age
+      }\nOwns Land: #{@farmer_3.owns_land}")
+
+    visit "/farms/#{@farm_2.id}/farmers"
+
+    expect(page).to have_content("#{@farmer_4.name}\nAge: #{@farmer_4.age
+      }\nOwns Land: #{@farmer_4.owns_land}")
+    expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age
+      }\nOwns Land: #{@farmer_5.owns_land}")
+    expect(page).to have_content("#{@farmer_6.name}\nAge: #{@farmer_6.age
+      }\nOwns Land: #{@farmer_6.owns_land}")
+    expect(page).to_not have_content("#{@farmer_7.name}\nAge: #{@farmer_7.age
+      }\nOwns Land: #{@farmer_7.owns_land}")
   end
 
   it 'can display a navigation bar' do
@@ -53,7 +76,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
   it 'can sort farm farmers in alphabetical order by name' do
     visit "/farms/#{@farm_1.id}/farmers"
 
-    click_link("Sort by Name")
+    click_link('Sort by Name')
 
     expect(current_path).to eq("/farms/#{@farm_1.id}/farmers")
     # expect(current_path).to eq("/farms/#{@farm_1.id}/farmers/?sort=alpha")
@@ -64,18 +87,26 @@ RSpec.describe 'farm to farmers index page', type: :feature do
       }\nOwns Land: #{@farmer_2.owns_land}\n#{@farmer_1.name}\nAge: #{
       @farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
 
-      visit "/farms/#{@farm_2.id}/farmers"
+    visit "/farms/#{@farm_2.id}/farmers"
 
-      click_link("Sort by Name")
+    click_link('Sort by Name')
 
-      expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
-      # expect(current_path).to eq("/farms/#{@farm_2.id}/farmers/?sort=alpha")
+    expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
+    # expect(current_path).to eq("/farms/#{@farm_2.id}/farmers/?sort=alpha")
 
-      expect(page).to_not have_content("#{@farmer_7.name}\nAge: #{
-        @farmer_7.age}\nOwns Land: #{@farmer_7.owns_land}")
-      expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age
-        }\nOwns Land: #{@farmer_5.owns_land}\n#{@farmer_6.name}\nAge: #{
-        @farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}\n#{@farmer_4.name}\nAge: #{
-        @farmer_4.age}\nOwns Land: #{@farmer_4.owns_land}")
+    expect(page).to_not have_content("#{@farmer_7.name}\nAge: #{
+      @farmer_7.age}\nOwns Land: #{@farmer_7.owns_land}")
+    expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age
+      }\nOwns Land: #{@farmer_5.owns_land}\n#{@farmer_6.name}\nAge: #{
+      @farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}\n#{@farmer_4.name
+      }\nAge: #{@farmer_4.age}\nOwns Land: #{@farmer_4.owns_land}")
+  end
+
+  it 'can link to create a new farmer' do
+    visit "/farms/#{@farm_1.id}/farmers"
+
+    click_button('Create New Farmer')
+
+    expect(current_path).to eq("/farms/#{@farm_1.id}/farmers/new")
   end
 end
