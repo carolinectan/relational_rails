@@ -28,6 +28,7 @@ RSpec.describe 'farmers index page', type: :feature do
   it 'can display a navigation bar' do
     visit "/farmers/#{@farmer_2.id}"
 
+    expect(page).to have_link('Home', :href => '/')
     expect(page).to have_link('Farm Index', :href => '/farms')
     expect(page).to have_link('Farmer Index', :href => '/farmers')
     expect(page).to have_link('Plant Index', :href => '/plants')

@@ -1,6 +1,6 @@
 class FarmersController < ApplicationController
   def index
-    @farmers = Farmer.all
+    @farmers = Farmer.owns_land_filter
   end
 
   def new

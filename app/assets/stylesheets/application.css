@@ -96,10 +96,10 @@ p {
 
 a {
   padding: 5px;
-  margin: 5px;
-  color: black;
+  margin: 2%;
+  color: #535FA6;
   text-decoration: none;
-  background-color: #F5F9EF;
+  text-transform: capitalize;
   border-radius: 5px;
 }
 
@@ -108,19 +108,22 @@ a:hover {
 }
 
 html {
-  padding: 2px;
-  margin: 2px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
+
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   margin: 25px auto;
   padding: 15px;
-  width: 50%;
+  width: 60%;
   background-color: #F5F9EF;
-  border-radius: 10px;
+  border-radius: 10px
 }
 
 .index-item {
@@ -138,6 +141,11 @@ form {
   border-radius: 5px;
 }
 
+button, label, input {
+  padding: 6px;
+  color: black;
+}
+
 label {
   margin-bottom: 2px;
   margin-top: 5px;
@@ -146,6 +154,5 @@ label {
 
 input {
   margin: 5px;
-  padding: 2px;
   width: 50%;
 }
