@@ -26,12 +26,10 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age}\nOwns Land: #{@farmer_5.owns_land}")
     expect(page).to have_content("#{@farmer_6.name}\nAge: #{@farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}")
     expect(page).to have_content("#{@farmer_7.name}\nAge: #{@farmer_7.age}\nOwns Land: #{@farmer_7.owns_land}")
-##############################
 
-save_and_open_page
     fill_in('number', with: 30)
     click_button('Only return records that are over the age submitted')
-save_and_open_page
+
     expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
     expect(page).to have_content("#{@farmer_4.name}\nAge: #{@farmer_4.age
       }\nOwns Land: #{@farmer_4.owns_land}")
