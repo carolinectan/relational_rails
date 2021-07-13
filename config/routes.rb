@@ -38,7 +38,9 @@ Rails.application.routes.draw do
 
   get '/farms/:farm_id/farmers/new',  to: 'farmers#new'
   post '/farms/:farm_id/farmers', to: 'farmers#create'
-  get '/farms/:farm_id/farmers', to: "farm_farmers#index"
+  get '/farms/:farm_id/farmers', to: 'farm_farmers#index'
+  # patch '/farms/:farm_id/farmers', to: 'farm_farmers#threshold'
 
-  delete '/farms/:farm_id/farmers', to: "farm_farmers#destroy"
+  delete '/farms/:farm_id/farmers', to: 'farm_farmers#destroy'
+
 end
