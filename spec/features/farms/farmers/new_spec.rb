@@ -30,15 +30,18 @@ RSpec.describe 'the farm farmer creation' do
     click_button('Create New Farmer')
 
     expect(current_path).to eq("/farms/#{@farm.id}/farmers")
-    expect(page).to have_content("Penelope")
-    expect(page).to have_content("true")
-    expect(page).to have_content("27")
+    expect(page).to have_content('Penelope')
+    expect(page).to have_content('true')
+    expect(page).to have_content('27')
+  end
+
+  it 'can display a navigation bar' do
+    visit "/farms/#{@farm.id}/farmers/new"
+
+    expect(page).to have_link('Home', :href => '/')
+    expect(page).to have_link('Farm Index', :href => '/farms')
+    expect(page).to have_link('Farmer Index', :href => '/farmers')
+    expect(page).to have_link('Plant Index', :href => '/plants')
+    expect(page).to have_link('Garden Index', :href => '/gardens')
   end
 end
-
-# I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
-# When I fill in the form with the child's attributes:
-# And I click the button "Create Child"
-# Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
-# a new child object/row is created for that parent,
-# and I am redirected to the Parent Childs Index page where I can see the new child listed

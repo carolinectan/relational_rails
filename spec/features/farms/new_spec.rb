@@ -21,4 +21,14 @@ RSpec.describe 'the Farm creation' do
     expect(page).to have_content("Coconut Tree Farm\n(Created at: #{
       Farm.last.created_at})")
   end
+
+  it 'can display a navigation bar' do
+    visit "/farms/new"
+
+    expect(page).to have_link('Home', :href => '/')
+    expect(page).to have_link('Farm Index', :href => '/farms')
+    expect(page).to have_link('Farmer Index', :href => '/farmers')
+    expect(page).to have_link('Plant Index', :href => '/plants')
+    expect(page).to have_link('Garden Index', :href => '/gardens')
+  end
 end

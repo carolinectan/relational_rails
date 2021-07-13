@@ -20,4 +20,22 @@ RSpec.describe 'the Farmer edit' do
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}/edit")
   end
+
+  it 'can display a navigation bar' do
+    visit "/farmers/#{@farmer_1.id}/edit"
+
+    expect(page).to have_link('Home', :href => '/')
+    expect(page).to have_link('Farm Index', :href => '/farms')
+    expect(page).to have_link('Farmer Index', :href => '/farmers')
+    expect(page).to have_link('Plant Index', :href => '/plants')
+    expect(page).to have_link('Garden Index', :href => '/gardens')
+
+    visit "/farmers/#{@farmer_2.id}/edit"
+
+    expect(page).to have_link('Home', :href => '/')
+    expect(page).to have_link('Farm Index', :href => '/farms')
+    expect(page).to have_link('Farmer Index', :href => '/farmers')
+    expect(page).to have_link('Plant Index', :href => '/plants')
+    expect(page).to have_link('Garden Index', :href => '/gardens')
+  end
 end

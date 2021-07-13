@@ -60,4 +60,14 @@ RSpec.describe 'the Farm edit' do
     expect(page).to have_content('Strawberry Farm')
     expect(page).to have_content('false')
   end
+
+  it 'can display a navigation bar' do
+    visit "/farms/#{@farm.id}/edit"
+
+    expect(page).to have_link('Home', :href => '/')
+    expect(page).to have_link('Farm Index', :href => '/farms')
+    expect(page).to have_link('Farmer Index', :href => '/farmers')
+    expect(page).to have_link('Plant Index', :href => '/plants')
+    expect(page).to have_link('Garden Index', :href => '/gardens')
+  end
 end
