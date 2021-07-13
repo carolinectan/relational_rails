@@ -3,6 +3,6 @@
 <p>Has Irrigation: <%= @garden.irrigation  %></p>
 <p>Plant Capacity: <%= @garden.plant_capacity %></p>
 <p>Total Plants: <%= @count %></p>
-<%= button_to "Edit Garden", "/gardens/#{@garden.id}/edit", method: :get %>
+<%= link_to "Edit Garden", "/gardens/#{@garden.id}/edit" %>
 <%= link_to "#{@garden.name}'s Plants", "/gardens/#{@garden.id}/plants" %>
 <%= link_to "Delete Garden", "/gardens/#{@garden.id}", method: :delete %>

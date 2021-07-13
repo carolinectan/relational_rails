@@ -47,7 +47,7 @@ RSpec.describe 'gardens index page' do
     it 'takes you to a new parent form' do
       visit "/gardens"
 
-      click_button('Add New Garden')
+      click_on('Add New Garden')
       expect(current_path).to eq('/gardens/new')
     end
 

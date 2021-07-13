@@ -59,7 +59,7 @@ RSpec.describe 'plants show page' do
 
       visit "/plants/#{plant1.id}"
 
-      click_button("Edit Plant")
+      click_on("Edit Plant")
       expect(current_path).to eq("/plants/#{plant1.id}/edit")
     end
 

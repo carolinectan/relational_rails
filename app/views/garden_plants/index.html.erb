@@ -1,6 +1,7 @@
 <h1><%= @garden.name %></h1>
 
 <%= link_to "sort by name", "/gardens/#{@garden.id}/plants?sort=alpha" %>
+<%= link_to "Add New Plant", "/gardens/#{@garden.id}/plants/new", method: :get %>
 
   <% @plants.each do |plant| %>
   <div class="index-item">
@@ -11,5 +12,3 @@
     <%= link_to "Delete #{plant.name}", "/plants/#{plant.id}", method: :delete %>
   </div>
   <% end %>
-
-  <%= button_to "Add New Plant", "/gardens/#{@garden.id}/plants/new", method: :get %>
