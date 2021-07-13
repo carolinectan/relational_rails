@@ -12,3 +12,9 @@
     <%= link_to "Delete #{plant.name}", "/plants/#{plant.id}", method: :delete %>
   </div>
   <% end %>
+
+<%= form_with url: "/gardens/#{@garden.id}/plants", method: :get, local: true do |form|  %>
+  <%= form.label :number, "Minimum Height" %>
+  <%= form.number_field :number %>
+  <%= form.submit "Only Return Plants that have Minimum Mature Height"  %>
+<% end %>

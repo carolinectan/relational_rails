@@ -84,4 +84,21 @@ RSpec.describe 'Garden Plants Index' do
       expect(page).to_not have_content(@plant2.name)
     end
   end
+
+  describe 'filter by mature height' do
+    it 'can display records over a given threshold' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      fill_in "Minimum Height", with: '11'
+      click_on "Only Return Plants that have Minimum Mature Height"
+
+      expect(current_path).to eq("/gardens/#{@garden.id}/plants")
+
+      expect(page).to have_content(@plant2.name)
+      expect(page).to have_content(@plant2.mature_height)
+      expect(page).to have_content(@plant3.name)
+      expect(page).to have_content(@plant3.mature_height)
+      expect(page).to_not have_content(@plant1.name)
+    end
+  end
 end
