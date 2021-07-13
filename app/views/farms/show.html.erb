@@ -5,5 +5,4 @@
 <p>Number of Farmers: <%= link_to "#{@farm.farmers.length}", "/farms/#{@farm.id}/farmers/" %>
 
 <%= button_to "Update #{@farm.name}", "/farms/#{@farm.id}/edit", method: :get %>
-<br>
 <%= button_to "Delete #{@farm.name}", "/farms/#{@farm.id}", method: :delete %>

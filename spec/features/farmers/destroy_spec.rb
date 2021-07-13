@@ -29,7 +29,7 @@ RSpec.describe 'destroying a farmer' do
 
   it 'can delete the farmer from the farm farmer page' do
     visit "/farms/#{@farm.id}/farmers"
-save_and_open_page
+
     expect(page).to have_content("#{@farmer_1.name}\nAge: #{
       @farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
     expect(page).to have_content("#{@farmer_2.name}\nAge: #{

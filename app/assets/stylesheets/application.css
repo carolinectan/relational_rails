@@ -83,14 +83,15 @@ p {
   display: block;
   text-align: center;
   font-size: 1.2em;
+  text-transform: capitalize;
 }
 
 a {
   padding: 5px;
   margin: 2%;
   color: #535FA6;
-  text-decoration: none
-
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 a:hover {
