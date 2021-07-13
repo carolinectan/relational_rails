@@ -2,11 +2,11 @@ class FarmFarmersController < ApplicationController
   def index
     if params[:sort] == 'alpha'
       @farm = Farm.find(params[:farm_id])
-      @farmers = @farm.farmers.sort_name.owns_land_filter
+      @farmers = @farm.farmers.sort_name
       # redirect_to "/farms/#{@farm.id}/farmers?sort=alpha"
     else
       @farm = Farm.find(params[:farm_id])
-      @farmers = @farm.farmers.owns_land_filter
+      @farmers = @farm.farmers
     end
   end
 

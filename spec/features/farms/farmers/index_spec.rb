@@ -11,19 +11,20 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     @farmer_1 = @farm_1.farmers.create!(name: 'Samanta', age: 57, owns_land: true)
     @farmer_2 = @farm_1.farmers.create!(name: 'Peter', age: 22, owns_land: true)
     @farmer_3 = @farm_1.farmers.create!(name: 'Jesse', age: 45, owns_land: false)
+
     @farmer_4 = @farm_2.farmers.create!(name: 'Mark', age: 74, owns_land: true)
     @farmer_5 = @farm_2.farmers.create!(name: 'Amanda', age: 30, owns_land: true)
     @farmer_6 = @farm_2.farmers.create!(name: 'Carina', age: 26, owns_land: true)
     @farmer_7 = @farm_2.farmers.create!(name: 'Jason', age: 34, owns_land: false)
   end
 
-  it "can display a specific farm's farmers ONLY if owns_land == true" do
+  it 'can display all farmers of a specific farm' do
     visit "/farms/#{@farm_1.id}/farmers"
 
     expect(page).to have_content("#{@farm_1.name}")
     expect(page).to have_content("#{@farmer_1.name}")
     expect(page).to have_content("#{@farmer_2.name}")
-    expect(page).to_not have_content("#{@farmer_3.name}")
+    expect(page).to have_content("#{@farmer_3.name}")
 
     visit "/farms/#{@farm_2.id}/farmers"
 
@@ -31,7 +32,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     expect(page).to have_content("#{@farmer_4.name}")
     expect(page).to have_content("#{@farmer_5.name}")
     expect(page).to have_content("#{@farmer_6.name}")
-    expect(page).to_not have_content("#{@farmer_7.name}")
+    expect(page).to have_content("#{@farmer_7.name}")
   end
 
    it "can display all farmers' attributes" do
@@ -41,7 +42,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
       }\nOwns Land: #{@farmer_1.owns_land}")
     expect(page).to have_content("#{@farmer_2.name}\nAge: #{@farmer_2.age
       }\nOwns Land: #{@farmer_2.owns_land}")
-    expect(page).to_not have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age
+    expect(page).to have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age
       }\nOwns Land: #{@farmer_3.owns_land}")
 
     visit "/farms/#{@farm_2.id}/farmers"
@@ -52,7 +53,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
       }\nOwns Land: #{@farmer_5.owns_land}")
     expect(page).to have_content("#{@farmer_6.name}\nAge: #{@farmer_6.age
       }\nOwns Land: #{@farmer_6.owns_land}")
-    expect(page).to_not have_content("#{@farmer_7.name}\nAge: #{@farmer_7.age
+    expect(page).to have_content("#{@farmer_7.name}\nAge: #{@farmer_7.age
       }\nOwns Land: #{@farmer_7.owns_land}")
   end
 
@@ -82,9 +83,8 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     expect(current_path).to eq("/farms/#{@farm_1.id}/farmers")
     # expect(current_path).to eq("/farms/#{@farm_1.id}/farmers/?sort=alpha")
 
-    expect(page).to_not have_content("#{@farmer_3.name}\nAge: #{
-      @farmer_3.age}\nOwns Land: #{@farmer_3.owns_land}")
-    expect(page).to have_content("#{@farmer_2.name}\nAge: #{@farmer_2.age
+    expect(page).to have_content("#{@farmer_3.name}\nAge: #{
+      @farmer_3.age}\nOwns Land: #{@farmer_3.owns_land}\n#{@farmer_2.name}\nAge: #{@farmer_2.age
       }\nOwns Land: #{@farmer_2.owns_land}\n#{@farmer_1.name}\nAge: #{
       @farmer_1.age}\nOwns Land: #{@farmer_1.owns_land}")
 
@@ -94,12 +94,10 @@ RSpec.describe 'farm to farmers index page', type: :feature do
 
     expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
     # expect(current_path).to eq("/farms/#{@farm_2.id}/farmers/?sort=alpha")
-
-    expect(page).to_not have_content("#{@farmer_7.name}\nAge: #{
-      @farmer_7.age}\nOwns Land: #{@farmer_7.owns_land}")
     expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age
       }\nOwns Land: #{@farmer_5.owns_land}\n#{@farmer_6.name}\nAge: #{
-      @farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}\n#{@farmer_4.name
+      @farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}\n#{@farmer_7.name}\nAge: #{
+        @farmer_7.age}\nOwns Land: #{@farmer_7.owns_land}\n#{@farmer_4.name
       }\nAge: #{@farmer_4.age}\nOwns Land: #{@farmer_4.owns_land}")
   end
 
