@@ -88,7 +88,7 @@ p {
 a {
   padding: 5px;
   margin: 2%;
-  color: black;
+  color: #535FA6;
   text-decoration: none
 
 }
@@ -100,6 +100,7 @@ a:hover {
 html {
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 form {
@@ -107,6 +108,7 @@ form {
   margin: 20px auto;
   width: 60%;
   background-color: #A7D370;
+  text-align: center;
 }
 
 .index-item {
@@ -125,5 +127,6 @@ form {
 
 button, label, input {
   margin: 8px;
-  padding: 2px;
+  padding: 6px;
+  color: black;
 }
