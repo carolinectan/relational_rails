@@ -3,23 +3,25 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   ##### Garden and Plant Routes #############
-  
+
   get '/gardens', to: 'gardens#index'
   get '/gardens/new', to: 'gardens#new'
   get '/gardens/:id', to: 'gardens#show'
   post '/gardens', to: 'gardens#create'
   get '/gardens/:id/edit', to: 'gardens#edit'
   patch '/gardens/:id', to: 'gardens#update'
+  delete '/gardens/:id', to: 'gardens#delete'
 
   get '/plants', to: 'plants#index'
   get '/plants/:id', to: 'plants#show'
   get '/plants/:id/edit', to: 'plants#edit'
   patch '/plants/:id', to: 'plants#update'
+  delete '/plants/:id', to: 'plants#delete'
 
   get '/gardens/:garden_id/plants', to: 'garden_plants#index'
   get '/gardens/:garden_id/plants/new', to: 'garden_plants#new'
   post '/gardens/:garden_id/plants', to: 'garden_plants#create'
-  
+
   ##### Farm and Farmer Routes #############
 
   get '/farms', to: 'farms#index'

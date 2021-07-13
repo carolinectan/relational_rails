@@ -28,6 +28,14 @@ class GardensController < ApplicationController
     redirect_to "/gardens/#{garden.id}"
   end
 
+  def delete
+    @plants = Plant.where(garden_id: params[:id])
+    @plants.destroy_all
+    Garden.destroy(params[:id])
+
+    redirect_to '/gardens'
+  end
+
   def garden_params
     params.permit(:name, :irrigation, :plant_capacity)
   end

@@ -4,3 +4,4 @@
 <p>Mature Height: <%= @plant.mature_height %></p>
 
 <%= button_to "Edit Plant", "/plants/#{@plant.id}/edit", method: :get %>
+<%= link_to "Delete Plant", "/plants/#{@plant.id}", method: :delete %>

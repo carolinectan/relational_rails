@@ -5,3 +5,4 @@
 <p>Total Plants: <%= @count %></p>
 <%= button_to "Edit Garden", "/gardens/#{@garden.id}/edit", method: :get %>
 <%= link_to "#{@garden.name}'s Plants", "/gardens/#{@garden.id}/plants" %>
+<%= link_to "Delete Garden", "/gardens/#{@garden.id}", method: :delete %>

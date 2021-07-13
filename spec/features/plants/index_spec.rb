@@ -61,5 +61,14 @@ RSpec.describe 'plants index page' do
       click_on("Edit #{@plant2.name}")
       expect(current_path).to eq("/plants/#{@plant2.id}/edit")
     end
+
+    it 'can delete an instance of a plant' do
+      visit "/plants"
+
+      click_on "Delete #{@plant2.name}"
+      expect(current_path).to eq('/plants')
+
+      expect(page).to_not have_content(@plant2.name)
+    end
   end
 end

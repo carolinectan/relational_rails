@@ -4,6 +4,7 @@
 <% @gardens.each do |garden| %>
 <div class="index-item">
   <h3><a href='/gardens/<%= garden.id %>'><%= garden.name %></a> (<%= garden.created_at %>)</h3>
-  <a href="gardens/<%= garden.id %>/edit">Edit <%= garden.name  %></a>
+  <%= link_to "Edit #{garden.name}", "gardens/#{garden.id}/edit"  %>
+  <%= link_to "Delete #{garden.name}", "/gardens/#{garden.id}", method: :delete %>
 </div>
 <% end %>

@@ -61,5 +61,17 @@ RSpec.describe 'gardens show page' do
       click_button("Edit Garden")
       expect(current_path).to eq("/gardens/#{garden.id}/edit")
     end
+
+    it 'can delete a garden instance' do
+      garden = Garden.create!(name: 'sample garden', irrigation: true, plant_capacity: 10)
+      visit "/gardens/#{garden.id}"
+
+      expect(page).to have_content(garden.name)
+
+      click_on 'Delete Garden'
+      expect(current_path).to eq('/gardens')
+
+      expect(page).to_not have_content(garden.name)
+    end
   end
 end

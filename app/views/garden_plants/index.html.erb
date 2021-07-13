@@ -5,9 +5,10 @@
   <% @plants.each do |plant| %>
   <div class="index-item">
     <h2><%= plant.name %></h2>
-    <%= link_to "Edit #{plant.name}", "/plants/#{plant.id}/edit" %>
     <p>Edible: <%= plant.edible %></p>
     <p>Mature Height: <%= plant.mature_height %></p>
+    <%= link_to "Edit #{plant.name}", "/plants/#{plant.id}/edit" %>
+    <%= link_to "Delete #{plant.name}", "/plants/#{plant.id}", method: :delete %>
   </div>
   <% end %>
 
