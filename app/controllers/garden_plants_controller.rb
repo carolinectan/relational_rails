@@ -4,6 +4,9 @@ class GardenPlantsController < ApplicationController
     if params[:sort] == 'alpha'
       @garden = Garden.find(params[:garden_id])
       @plants = @garden.plants.sort_name
+    elsif params[:number] != nil
+      @garden = Garden.find(params[:garden_id])
+      @plants = @garden.plants.where("mature_height > #{params[:number]}")
     else
       @garden = Garden.find(params[:garden_id])
       @plants = @garden.plants

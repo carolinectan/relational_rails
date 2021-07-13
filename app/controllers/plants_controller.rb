@@ -18,6 +18,12 @@ class PlantsController < ApplicationController
     redirect_to "/plants/#{plant.id}"
   end
 
+  def delete
+    Plant.destroy(params[:id])
+
+    redirect_to '/plants'
+  end
+
   def plant_params
     params.permit(:name, :edible, :mature_height)
   end
