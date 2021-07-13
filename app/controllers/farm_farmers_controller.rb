@@ -1,7 +1,13 @@
 class FarmFarmersController < ApplicationController
   def index
-    @farm = Farm.find(params[:farm_id])
-    @farmers = @farm.farmers.owns_land_filter
+    if params[:sort] == 'alpha'
+      @farm = Farm.find(params[:farm_id])
+      @farmers = @farm.farmers.sort_name.owns_land_filter
+      # redirect_to "/farms/#{@farm.id}/farmers?sort=alpha"
+    else
+      @farm = Farm.find(params[:farm_id])
+      @farmers = @farm.farmers.owns_land_filter
+    end
   end
 
 # def new

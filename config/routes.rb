@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   ##### Garden and Plant Routes #############
-  
+
   get '/gardens', to: 'gardens#index'
   get '/gardens/new', to: 'gardens#new'
   get '/gardens/:id', to: 'gardens#show'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/gardens/:garden_id/plants', to: 'garden_plants#index'
   get '/gardens/:garden_id/plants/new', to: 'garden_plants#new'
   post '/gardens/:garden_id/plants', to: 'garden_plants#create'
-  
+
   ##### Farm and Farmer Routes #############
 
   get '/farms', to: 'farms#index'
