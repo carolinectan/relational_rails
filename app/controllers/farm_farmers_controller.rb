@@ -1,7 +1,7 @@
 class FarmFarmersController < ApplicationController
   def index
     @farm = Farm.find(params[:farm_id])
-    @farmers = @farm.farmers
+    @farmers = @farm.farmers.owns_land_filter
   end
 
 # def new
