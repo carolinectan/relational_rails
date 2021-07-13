@@ -7,41 +7,48 @@ RSpec.describe 'gardens index page' do
     @garden3 = Garden.create!(name: 'first garden', irrigation: true, plant_capacity: 10)
   end
 
-  it 'displays all garden names' do
-    visit "/gardens"
+  describe 'display' do
+    it 'displays all garden names' do
+      visit "/gardens"
 
-    expect(page).to have_content(@garden1.name)
-    expect(page).to have_content(@garden2.name)
-    expect(page).to have_content(@garden3.name)
+      expect(page).to have_content(@garden1.name)
+      expect(page).to have_content(@garden2.name)
+      expect(page).to have_content(@garden3.name)
+    end
+
+    it 'displays created at time next to garden name' do
+      visit "/gardens"
+
+      expect(page).to have_content(@garden1.created_at)
+      expect(page).to have_content(@garden2.created_at)
+      expect(page).to have_content(@garden3.created_at)
+    end
   end
 
-  it 'displays created at time next to garden name' do
-    visit "/gardens"
+  describe 'delete' do
+    it 'can delete an instance of a garden' do
+      visit "/gardens"
 
-    expect(page).to have_content(@garden1.created_at)
-    expect(page).to have_content(@garden2.created_at)
-    expect(page).to have_content(@garden3.created_at)
+      click_on "Delete #{@garden2.name}"
+      expect(current_path).to eq('/gardens')
+
+      expect(page).to_not have_content(@garden2.name)
+    end
   end
 
   describe "links" do
     it 'takes you to the plant index' do
       visit "/gardens"
 
-      expect(page).to have_content('Plant Index')
-
       click_on('Plant Index')
-
-      page.has_xpath?('/plants')
+      expect(current_path).to eq('/plants')
     end
 
     it 'takes you to the garden index' do
       visit "/gardens"
 
-      expect(page).to have_content('Garden Index')
-
       click_on('Garden Index')
-
-      page.has_xpath?('/gardens')
+      expect(current_path).to eq('/gardens')
     end
 
     it 'takes you to a new parent form' do
@@ -56,15 +63,6 @@ RSpec.describe 'gardens index page' do
 
       click_on("Edit #{@garden1.name}")
       expect(current_path).to eq("/gardens/#{@garden1.id}/edit")
-    end
-
-    it 'can delete an instance of a garden' do
-      visit "/gardens"
-
-      click_on "Delete #{@garden2.name}"
-      expect(current_path).to eq('/gardens')
-
-      expect(page).to_not have_content(@garden2.name)
     end
   end
 end

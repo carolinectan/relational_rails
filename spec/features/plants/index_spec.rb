@@ -10,58 +10,33 @@ RSpec.describe 'plants index page' do
     @plant4 = @garden.plants.create!(name: 'Poison Oak', edible: false, mature_height: 22)
   end
 
-  it 'displays all plant names' do
-    visit "/plants"
+  describe 'display' do
+    it 'displays all plant names' do
+      visit "/plants"
 
-    expect(page).to have_content(@plant2.name)
-    expect(page).to have_content(@plant3.name)
+      expect(page).to have_content(@plant2.name)
+      expect(page).to have_content(@plant3.name)
 
-    expect(page).to have_content(@plant2.edible)
-    expect(page).to have_content(@plant3.edible)
+      expect(page).to have_content(@plant2.edible)
+      expect(page).to have_content(@plant3.edible)
 
-    expect(page).to have_content(@plant2.mature_height)
-    expect(page).to have_content(@plant3.mature_height)
+      expect(page).to have_content(@plant2.mature_height)
+      expect(page).to have_content(@plant3.mature_height)
 
+    end
+
+    it 'only displays plants with edible: true' do
+      visit "/plants"
+
+      expect(page).to have_content(@plant2.name)
+      expect(page).to have_content(@plant3.name)
+
+      expect(page).to_not have_content(@plant1.name)
+      expect(page).to_not have_content(@plant4.name)
+    end
   end
 
-  it 'only displays plants with edible: true' do
-    visit "/plants"
-
-    expect(page).to have_content(@plant2.name)
-    expect(page).to have_content(@plant3.name)
-
-    expect(page).to_not have_content(@plant1.name)
-    expect(page).to_not have_content(@plant4.name)
-  end
-
-  describe "links" do
-    it 'takes you to the plant index' do
-      visit "/plants"
-
-      expect(page).to have_content('Plant Index')
-
-      click_on('Plant Index')
-
-      page.has_xpath?('/plants')
-    end
-
-    it 'takes you to the garden index' do
-      visit "/plants"
-
-      expect(page).to have_content('Garden Index')
-
-      click_on('Garden Index')
-
-      page.has_xpath?('/gardens')
-    end
-
-    it 'takes you to edit a plant' do
-      visit "/plants"
-
-      click_on("Edit #{@plant2.name}")
-      expect(current_path).to eq("/plants/#{@plant2.id}/edit")
-    end
-
+  describe 'delete' do
     it 'can delete an instance of a plant' do
       visit "/plants"
 
@@ -69,6 +44,29 @@ RSpec.describe 'plants index page' do
       expect(current_path).to eq('/plants')
 
       expect(page).to_not have_content(@plant2.name)
+    end
+  end
+
+  describe "links" do
+    it 'takes you to the plant index' do
+      visit "/plants"
+
+      click_on('Plant Index')
+      expect(current_path).to eq('/plants')
+    end
+
+    it 'takes you to the garden index' do
+      visit "/plants"
+
+      click_on('Garden Index')
+      expect(current_path).to eq('/gardens')
+    end
+
+    it 'takes you to edit a plant' do
+      visit "/plants"
+
+      click_on("Edit #{@plant2.name}")
+      expect(current_path).to eq("/plants/#{@plant2.id}/edit")
     end
   end
 end
