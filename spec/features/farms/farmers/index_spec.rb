@@ -27,6 +27,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
 
     visit "/farms/#{@farm_2.id}/farmers"
 
+    expect(page).to have_content("#{@farm_2.name}")
     expect(page).to have_content("#{@farmer_4.name}")
     expect(page).to have_content("#{@farmer_5.name}")
     expect(page).to have_content("#{@farmer_6.name}")
@@ -112,7 +113,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
 
   it 'can delete a new farmer' do
     visit "/farms/#{@farm_1.id}/farmers"
-    
+
     expect(page).to have_content("#{@farmer_1.name}")
 
     click_button("Delete Farmer #{@farmer_1.name}")
@@ -121,5 +122,4 @@ RSpec.describe 'farm to farmers index page', type: :feature do
 
     expect(page).to_not have_content("#{@farmer_1.name}")
   end
-
 end
