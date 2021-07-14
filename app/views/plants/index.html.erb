@@ -2,7 +2,7 @@
 
 <% @plants.each do |plant| %>
 <div class='index-item'>
-  <h3><%= plant.name %></h3>
+  <h3><%= link_to "#{plant.name}", "/plants/#{plant.id}" %></h3>
   <p>Edible: <%= plant.edible %></p>
   <p>Mature Height: <%= plant.mature_height %></p>
   <%= link_to "Edit #{plant.name}", "/plants/#{plant.id}/edit" %>

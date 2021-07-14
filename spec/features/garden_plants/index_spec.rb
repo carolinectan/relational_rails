@@ -35,7 +35,7 @@ RSpec.describe 'Garden Plants Index' do
       visit "/gardens/#{@garden.id}/plants"
 
       fill_in 'Minimum Height', with: '11'
-      click_on 'Only Return Plants that have Minimum Mature Height'
+      click_on 'Only Return Plants over Mature Height'
 
       expect(current_path).to eq("/gardens/#{@garden.id}/plants")
 
@@ -95,6 +95,13 @@ RSpec.describe 'Garden Plants Index' do
 
       click_on("Edit #{@plant2.name}")
       expect(current_path).to eq("/plants/#{@plant2.id}/edit")
+    end
+
+    it 'takes you to plant show page' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      click_on("#{@plant2.name}")
+      expect(current_path).to eq("/plants/#{@plant2.id}")
     end
   end
 end
