@@ -20,10 +20,11 @@ RSpec.describe 'farms index page', type: :feature do
   it 'can display all farms in order by most recently created' do
     visit '/farms'
 
-    expected = "#{@farm_3.name}\n(Created at: #{@farm_3.created_at})\n#{
-    @farm_2.name}\n(Created at: #{@farm_2.created_at})\n#{
-    @farm_1.name}\n(Created at: #{@farm_1.created_at})"
-    expect(page).to have_content(expected)
+    expect(page).to have_content("#{@farm_3.name}\n(Created at: #{
+      @farm_3.created_at})\nUpdate #{@farm_3.name} Delete #{@farm_3.name
+      }\n#{@farm_2.name}\n(Created at: #{@farm_2.created_at})\nUpdate #{
+      @farm_2.name} Delete #{@farm_2.name}\n#{@farm_1.name}\n(Created at: #{
+      @farm_1.created_at})\nUpdate #{@farm_1.name} Delete #{@farm_1.name}")
   end
 
   it 'can display a navigation bar' do
