@@ -60,9 +60,7 @@ RSpec.describe 'gardens show page' do
     it 'takes you to the garden\'s plant index' do
       visit "/gardens/#{@garden.id}"
 
-      expect(page).to have_content("#{@garden.name}'s Plants")
-
-      click_on("#{@garden.name}'s Plants")
+      click_on("#{@garden.plant_count}")
 
       expect(current_path).to eq("/gardens/#{@garden.id}/plants")
     end
