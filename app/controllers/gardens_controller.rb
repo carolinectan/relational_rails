@@ -14,7 +14,7 @@ class GardensController < ApplicationController
   def create
     Garden.create!(garden_params)
 
-    redirect_to "/gardens"
+    redirect_to '/gardens'
   end
 
   def edit

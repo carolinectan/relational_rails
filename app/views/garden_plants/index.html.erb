@@ -1,10 +1,10 @@
 <h1><%= @garden.name %></h1>
 
-<%= link_to "sort by name", "/gardens/#{@garden.id}/plants?sort=alpha" %>
-<%= link_to "Add New Plant", "/gardens/#{@garden.id}/plants/new", method: :get %>
+<%= link_to 'sort by name', "/gardens/#{@garden.id}/plants?sort=alpha" %>
+<%= link_to 'Add New Plant', "/gardens/#{@garden.id}/plants/new", method: :get %>
 
   <% @plants.each do |plant| %>
-  <div class="index-item">
+  <div class='index-item'>
     <h2><%= plant.name %></h2>
     <p>Edible: <%= plant.edible %></p>
     <p>Mature Height: <%= plant.mature_height %></p>
@@ -14,7 +14,7 @@
   <% end %>
 
 <%= form_with url: "/gardens/#{@garden.id}/plants", method: :get, local: true do |form|  %>
-  <%= form.label :number, "Minimum Height" %>
+  <%= form.label :number, 'Minimum Height' %>
   <%= form.number_field :number %>
-  <%= form.submit "Only Return Plants that have Minimum Mature Height"  %>
+  <%= form.submit 'Only Return Plants that have Minimum Mature Height'  %>
 <% end %>

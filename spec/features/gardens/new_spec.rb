@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'create new garden' do
   describe 'create' do
     it 'can create a new garden' do
-      visit "/gardens/new"
+      visit '/gardens/new'
 
       fill_in('Name', with: 'test')
       fill_in('Plant Capacity', with: 25)
@@ -12,7 +12,7 @@ RSpec.describe 'create new garden' do
       click_button('Add Garden')
       expect(current_path).to eq('/gardens')
 
-      expect(page).to have_content("test")
+      expect(page).to have_content('test')
     end
   end
 end
