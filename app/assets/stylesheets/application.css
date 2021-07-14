@@ -51,7 +51,7 @@ h1 {
   width: 80%;
   display: block;
   text-align: center;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 h2 {
@@ -73,6 +73,7 @@ h3 {
   text-transform: capitalize;
   background-color: #C3E09F;
   border-radius: 5px;
+
 }
 
 /* ^^^? {
@@ -81,7 +82,7 @@ h3 {
 
 h3 a{
   margin: 2px auto;
-  padding: 2px;
+  padding: 5px;
   width: 80%;
   font-size: 1.2em;
   text-transform: capitalize;

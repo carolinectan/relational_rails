@@ -6,7 +6,7 @@
   <div class='index-item'>
   <h3><%= link_to "#{farm.name}", "/farms/#{farm.id}" %></h3>
   <p>(<%= farm.created_at %>)</p>
-  <%= link_to "Edit #{farm.name}", "/farms/#{farm.id}", method: :get %>
+  <%= link_to "Edit #{farm.name}", "/farms/#{farm.id}/edit", method: :get %>
   <%= link_to "Delete #{farm.name}", "/farms/#{farm.id}", method: :delete %>
   </div>
 <% end %>

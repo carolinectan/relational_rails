@@ -13,7 +13,7 @@ RSpec.describe 'the Farm creation', type: :feature do
     visit '/farms/new'
 
     fill_in('name', with: 'Coconut Tree Farm')
-    fill_in('has_animals', with: false)
+    uncheck('has_animals')
     fill_in('num_of_fields', with: '42')
 
     click_button('Add New Farm')
