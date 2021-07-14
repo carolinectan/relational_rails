@@ -6,7 +6,7 @@
 <%= form_with url: "/farms/#{@farm.id}/farmers", method: :get, local: true do |form| %>
   <%= form.label :number, "Enter Age Here:" %>
   <%= form.text_field :number %><br>
-  <%= form.submit "Only return records that are over the age submitted" %>
+  <%= form.submit "Only Return Farmers over the Age" %>
 <% end %>
 
 <% @farmers.each do |farmer| %>
