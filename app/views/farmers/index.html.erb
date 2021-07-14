@@ -1,11 +1,11 @@
 <h1>All Farmers</h1>
 
 <% @farmers.each do |farmer| %>
-  <div class="index-item">
+  <div class='index-item'>
   <h3><%= link_to "#{farmer.name}", "/farmers/#{farmer.id}"%></h3>
   <p>Age: <%= farmer.age %></p>
   <p>Owns Land: <%= farmer.owns_land %></p>
-  <%= button_to "Update Farmer #{farmer.name}", "/farmers/#{farmer.id}/edit", method: :get %>
-  <%= button_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
+  <%= link_to "Edit Farmer #{farmer.name}", "/farmers/#{farmer.id}/edit", method: :get %>
+  <%= link_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
   </div>
 <% end %>
