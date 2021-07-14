@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the Farmer edit' do
+RSpec.describe 'the Farmer edit', type: :feature do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all
@@ -14,28 +14,29 @@ RSpec.describe 'the Farmer edit' do
   end
 
   it 'can edit the farmer' do
-    visit "/farmers"
+    visit '/farmers'
 
     expect(page).to have_content(@farmer_1.name)
     expect(page).to have_content(@farmer_1.age)
     expect(page).to have_content(@farmer_1.owns_land)
-    click_button "Update Farmer #{@farmer_1.name}"
 
-    fill_in "name", with: "Peter"
-    fill_in "age", with: 42
-    page.check("owns_land")
-    click_button "Update Farmer #{@farmer_1.name}"
+    click_link "Edit Farmer #{@farmer_1.name}"
+
+    fill_in 'name', with: 'Peter'
+    fill_in 'age', with: 42
+    page.check('owns_land')
+    click_button "Edit Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}")
-    expect(page).to have_content("Peter")
-    expect(page).to have_content("42")
-    expect(page).to have_content("true")
+    expect(page).to have_content('Peter')
+    expect(page).to have_content('42')
+    expect(page).to have_content('true')
   end
 
   it 'links to the edit page from the farmer index page' do
-    visit "/farmers"
+    visit '/farmers'
 
-    click_button "Update Farmer #{@farmer_1.name}"
+    click_link "Edit Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}/edit")
   end
@@ -43,7 +44,7 @@ RSpec.describe 'the Farmer edit' do
   it 'links to the edit page from a farmer show page' do
     visit "/farmers/#{@farmer_1.id}"
 
-    click_button "Update Farmer #{@farmer_1.name}"
+    click_link "Edit Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}/edit")
   end

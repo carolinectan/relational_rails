@@ -12,7 +12,7 @@ class FarmsController < ApplicationController
 
   def create
     farm = Farm.create!(farm_params)
-    redirect_to "/farms"
+    redirect_to '/farms'
   end
 
   def edit

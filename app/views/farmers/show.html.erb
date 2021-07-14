@@ -1,7 +1,6 @@
 <h1><%= @farmer.name %> </h1>
-
 <p>Age: <%= @farmer.age %></p>
 <p>Owns Land: <%= @farmer.owns_land %></p>
-<%= button_to "Update Farmer #{@farmer.name}", "/farmers/#{@farmer.id}/edit", method: :get %>
-<br>
-<%= button_to "Delete Farmer #{@farmer.name}", "/farmers/#{@farmer.id}", method: :delete %>
+
+<%= link_to "Edit Farmer #{@farmer.name}", "/farmers/#{@farmer.id}/edit", method: :get %>
+<%= link_to "Delete Farmer #{@farmer.name}", "/farmers/#{@farmer.id}", method: :delete %>

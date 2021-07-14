@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the Farm edit' do
+RSpec.describe 'the Farm edit', type: :feature  do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all
@@ -11,7 +11,7 @@ RSpec.describe 'the Farm edit' do
   it 'links to the edit page from the farms index page' do
     visit '/farms'
 
-    click_button "Update #{@farm.name}"
+    click_link "Edit #{@farm.name}"
 
     expect(current_path).to eq("/farms/#{@farm.id}")
   end
@@ -19,17 +19,17 @@ RSpec.describe 'the Farm edit' do
   it 'links to the edit page from a farm show page' do
     visit "/farms/#{@farm.id}"
 
-    click_button "Update #{@farm.name}"
+    click_link "Edit #{@farm.name}"
 
     expect(current_path).to eq("/farms/#{@farm.id}/edit")
   end
 
   it 'can edit the farm from a farm index page' do
-    visit "/farms"
+    visit '/farms'
 
     expect(page).to have_content('Sheep Farm')
 
-    click_button 'Update Sheep Farm'
+    click_link "Edit #{@farm.name}"
 
     visit "/farms/#{@farm.id}/edit"
 
@@ -48,7 +48,7 @@ RSpec.describe 'the Farm edit' do
     expect(page).to have_content('Sheep Farm')
     expect(page).to have_content('true')
 
-    click_button 'Update Sheep Farm'
+    click_link "Edit #{@farm.name}"
 
     visit "/farms/#{@farm.id}/edit"
 

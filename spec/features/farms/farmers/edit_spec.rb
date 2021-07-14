@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the Farm Farmers edit' do
+RSpec.describe 'the Farm Farmers edit', type: :feature do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all
@@ -15,7 +15,7 @@ RSpec.describe 'the Farm Farmers edit' do
   it 'can link to the farmer edit page from the farm farmer index page' do
     visit "/farms/#{@farm.id}/farmers"
 
-    click_button "Update Farmer #{@farmer_1.name}"
+    click_link "Edit Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}/edit")
   end

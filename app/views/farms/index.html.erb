@@ -1,12 +1,12 @@
 <h1>All Farms</h1>
 
-<%= button_to "Create New Farm", "/farms/new", method: :get %>
+<%= link_to 'Add New Farm', '/farms/new', method: :get %>
 
 <% @farms.each do |farm| %>
-  <div class="index-item">
+  <div class='index-item'>
   <h3><%= link_to "#{farm.name}", "/farms/#{farm.id}" %></h3>
-  <p>(Created at: <%= farm.created_at %>)</p>
-  <%= button_to "Update #{farm.name}", "/farms/#{farm.id}", method: :get %><br>
-  <%= button_to "Delete #{farm.name}", "/farms/#{farm.id}", method: :delete %>
+  <p>(<%= farm.created_at %>)</p>
+  <%= link_to "Edit #{farm.name}", "/farms/#{farm.id}", method: :get %>
+  <%= link_to "Delete #{farm.name}", "/farms/#{farm.id}", method: :delete %>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'destroying a farmer' do
+RSpec.describe 'destroying a farmer', type: :feature do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all
@@ -13,13 +13,13 @@ RSpec.describe 'destroying a farmer' do
   end
 
   it 'can delete the farmer from the index page' do
-    visit "/farmers"
+    visit '/farmers'
 
     expect(page).to have_content(@farmer_1.name)
     expect(page).to have_content(@farmer_2.name)
     expect(page).to_not have_content(@farmer_3.name)
 
-    click_button "Delete Farmer #{@farmer_1.name}"
+    click_link "Delete Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq('/farmers')
     expect(page).to_not have_content(@farmer_1.name)
@@ -37,7 +37,7 @@ RSpec.describe 'destroying a farmer' do
     expect(page).to have_content("#{@farmer_3.name}\nAge: #{
       @farmer_3.age}\nOwns Land: #{@farmer_3.owns_land}")
 
-    click_button "Delete Farmer #{@farmer_1.name}"
+    click_link "Delete Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq('/farmers')
     expect(page).to_not have_content("#{@farmer_1.name}\nAge: #{
@@ -51,7 +51,7 @@ RSpec.describe 'destroying a farmer' do
   it 'can delete the farmer from the farmer show page' do
     visit "/farmers/#{@farmer_1.id}"
 
-    click_button "Delete Farmer #{@farmer_1.name}"
+    click_link "Delete Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq('/farmers')
 

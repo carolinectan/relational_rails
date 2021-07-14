@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'welcome page index' do
+RSpec.describe 'welcome page index', type: :feature do
   it 'can display a navigation bar' do
     visit '/'
 

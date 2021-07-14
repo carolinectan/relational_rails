@@ -1,6 +1,6 @@
 <h1><%= @farm.name %>'s Farmers</h1>
 
-<%= button_to "Create New Farmer", "/farms/#{@farm.id}/farmers/new", method: :get %>
+<%= link_to "Add New Farmer", "/farms/#{@farm.id}/farmers/new", method: :get %>
 <%= link_to "Sort by Name", "/farms/#{@farm.id}/farmers?sort=alpha" %>
 
 <%= form_with url: "/farms/#{@farm.id}/farmers", method: :get, local: true do |form| %>
@@ -14,7 +14,7 @@
   <h3><%= farmer.name %></h3>
   <p>Age: <%= farmer.age %></p>
   <p>Owns Land: <%= farmer.owns_land %></p>
-  <%= button_to "Update Farmer #{farmer.name}", "/farmers/#{farmer.id}/edit", method: :get %>
-  <%= button_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
+  <%= link_to "Edit Farmer #{farmer.name}", "/farmers/#{farmer.id}/edit", method: :get %>
+  <%= link_to "Delete Farmer #{farmer.name}", "/farmers/#{farmer.id}", method: :delete %>
   </div>
 <% end %>
