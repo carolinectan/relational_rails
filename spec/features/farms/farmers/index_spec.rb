@@ -136,7 +136,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
   it 'can link to create a new farmer' do
     visit "/farms/#{@farm_1.id}/farmers"
 
-    click_link('Create New Farmer')
+    click_link('Add New Farmer')
 
     expect(current_path).to eq("/farms/#{@farm_1.id}/farmers/new")
   end

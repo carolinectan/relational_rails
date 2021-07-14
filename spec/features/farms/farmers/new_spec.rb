@@ -15,7 +15,7 @@ RSpec.describe 'the farm farmer creation' do
   it 'can link to the new farmer page' do
     visit "/farms/#{@farm.id}/farmers"
 
-    click_link('Create New Farmer')
+    click_link('Add New Farmer')
 
     expect(current_path).to eq("/farms/#{@farm.id}/farmers/new")
   end
@@ -27,7 +27,7 @@ RSpec.describe 'the farm farmer creation' do
     fill_in('age', with: '27')
     fill_in('owns_land', with: 'true')
 
-    click_button('Create New Farmer')
+    click_button('Add New Farmer')
 
     expect(current_path).to eq("/farms/#{@farm.id}/farmers")
     expect(page).to have_content('Penelope')

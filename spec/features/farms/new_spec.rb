@@ -4,7 +4,7 @@ RSpec.describe 'the Farm creation' do
   it 'links to the new page from the artists index' do
     visit '/farms'
 
-    click_link('Create New Farm')
+    click_link('Add New Farm')
 
     expect(current_path).to eq('/farms/new')
   end
@@ -16,7 +16,7 @@ RSpec.describe 'the Farm creation' do
     fill_in('has_animals', with: false)
     fill_in('num_of_fields', with: '42')
 
-    click_button('Create New Farm')
+    click_button('Add New Farm')
 
     expect(current_path).to eq("/farms")
     expect(page).to have_content("Coconut Tree Farm\n(#{

@@ -1,5 +1,4 @@
 <h1><%= @farm.name %></h1>
-
 <p>Has Animals: <%= @farm.has_animals %> </p>
 <p>Number of Fields: <%= @farm.num_of_fields %></p>
 <p>Number of Farmers: <%= link_to "#{@farm.farmers.length}", "/farms/#{@farm.id}/farmers/" %></p>
