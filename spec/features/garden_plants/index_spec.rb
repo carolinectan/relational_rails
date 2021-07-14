@@ -34,8 +34,8 @@ RSpec.describe 'Garden Plants Index' do
     it 'can display records over a given threshold' do
       visit "/gardens/#{@garden.id}/plants"
 
-      fill_in "Minimum Height", with: '11'
-      click_on "Only Return Plants that have Minimum Mature Height"
+      fill_in 'Minimum Height', with: '11'
+      click_on 'Only Return Plants that have Minimum Mature Height'
 
       expect(current_path).to eq("/gardens/#{@garden.id}/plants")
 
@@ -49,7 +49,7 @@ RSpec.describe 'Garden Plants Index' do
 
   describe 'delete' do
     it 'can delete an instance of a plant' do
-      visit "/plants"
+      visit '/plants'
 
       click_on "Delete #{@plant2.name}"
       expect(current_path).to eq('/plants')
@@ -58,7 +58,7 @@ RSpec.describe 'Garden Plants Index' do
     end
   end
 
-  describe "links" do
+  describe 'links' do
     it 'takes you to the plant index' do
       visit ("/gardens/#{@garden.id}/plants")
 

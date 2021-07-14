@@ -12,7 +12,7 @@ RSpec.describe 'plants index page' do
 
   describe 'display' do
     it 'displays all plant names' do
-      visit "/plants"
+      visit '/plants'
 
       expect(page).to have_content(@plant2.name)
       expect(page).to have_content(@plant3.name)
@@ -26,7 +26,7 @@ RSpec.describe 'plants index page' do
     end
 
     it 'only displays plants with edible: true' do
-      visit "/plants"
+      visit '/plants'
 
       expect(page).to have_content(@plant2.name)
       expect(page).to have_content(@plant3.name)
@@ -38,7 +38,7 @@ RSpec.describe 'plants index page' do
 
   describe 'delete' do
     it 'can delete an instance of a plant' do
-      visit "/plants"
+      visit '/plants'
 
       click_on "Delete #{@plant2.name}"
       expect(current_path).to eq('/plants')
@@ -47,23 +47,23 @@ RSpec.describe 'plants index page' do
     end
   end
 
-  describe "links" do
+  describe 'links' do
     it 'takes you to the plant index' do
-      visit "/plants"
+      visit '/plants'
 
       click_on('Plant Index')
       expect(current_path).to eq('/plants')
     end
 
     it 'takes you to the garden index' do
-      visit "/plants"
+      visit '/plants'
 
       click_on('Garden Index')
       expect(current_path).to eq('/gardens')
     end
 
     it 'takes you to edit a plant' do
-      visit "/plants"
+      visit '/plants'
 
       click_on("Edit #{@plant2.name}")
       expect(current_path).to eq("/plants/#{@plant2.id}/edit")

@@ -36,7 +36,7 @@ RSpec.describe 'gardens show page' do
     end
   end
 
-  describe "links" do
+  describe 'links' do
     it 'takes you to the plant index' do
       visit "/gardens/#{@garden.id}"
 
@@ -57,7 +57,7 @@ RSpec.describe 'gardens show page' do
       expect(current_path).to eq('/gardens')
     end
 
-    it "takes you to the garden's plant index" do
+    it 'takes you to the garden\'s plant index' do
       visit "/gardens/#{@garden.id}"
 
       expect(page).to have_content("#{@garden.name}'s Plants")
@@ -70,7 +70,7 @@ RSpec.describe 'gardens show page' do
     it 'takes you to edit the garden' do
       visit "/gardens/#{@garden.id}"
 
-      click_on("Edit Garden")
+      click_on('Edit Garden')
       expect(current_path).to eq("/gardens/#{@garden.id}/edit")
     end
   end
