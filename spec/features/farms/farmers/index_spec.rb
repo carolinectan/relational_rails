@@ -107,7 +107,6 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     click_link('Sort by Name')
 
     expect(current_path).to eq("/farms/#{@farm_1.id}/farmers")
-    # expect(current_path).to eq("/farms/#{@farm_1.id}/farmers/?sort=alpha")
     expect(page).to have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age
       }\nOwns Land: #{@farmer_3.owns_land}\nEdit Farmer #{@farmer_3.name
       } Delete Farmer #{@farmer_3.name}\n#{@farmer_2.name}\nAge: #{
@@ -121,7 +120,6 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     click_link('Sort by Name')
 
     expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
-    # expect(current_path).to eq("/farms/#{@farm_2.id}/farmers/?sort=alpha")
     expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age
       }\nOwns Land: #{@farmer_5.owns_land}\nEdit Farmer #{@farmer_5.name
       } Delete Farmer #{@farmer_5.name}\n#{@farmer_6.name}\nAge: #{

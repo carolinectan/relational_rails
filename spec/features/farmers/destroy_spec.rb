@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'destroying a farmer' do
+RSpec.describe 'destroying a farmer', type: :feature do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all

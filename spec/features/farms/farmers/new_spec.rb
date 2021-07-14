@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the farm farmer creation' do
+RSpec.describe 'the farm farmer creation', type: :feature do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all
@@ -26,7 +26,6 @@ RSpec.describe 'the farm farmer creation' do
     fill_in('name', with: 'Penelope')
     fill_in('age', with: '27')
     fill_in('owns_land', with: 'true')
-
     click_button('Add New Farmer')
 
     expect(current_path).to eq("/farms/#{@farm.id}/farmers")

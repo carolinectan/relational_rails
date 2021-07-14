@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the Farm creation' do
+RSpec.describe 'the Farm creation', type: :feature do
   it 'links to the new page from the artists index' do
     visit '/farms'
 
@@ -19,8 +19,7 @@ RSpec.describe 'the Farm creation' do
     click_button('Add New Farm')
 
     expect(current_path).to eq("/farms")
-    expect(page).to have_content("Coconut Tree Farm\n(#{
-      Farm.last.created_at})")
+    expect(page).to have_content("Coconut Tree Farm\n(#{Farm.last.created_at})")
   end
 
   it 'can display a navigation bar' do

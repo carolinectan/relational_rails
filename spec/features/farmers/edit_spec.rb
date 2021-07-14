@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the Farmer edit' do
+RSpec.describe 'the Farmer edit', type: :feature do
   before :each do
     Farmer.destroy_all
     Farm.destroy_all
@@ -25,7 +25,6 @@ RSpec.describe 'the Farmer edit' do
     fill_in 'name', with: 'Peter'
     fill_in 'age', with: 42
     page.check('owns_land')
-
     click_button "Edit Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}")
