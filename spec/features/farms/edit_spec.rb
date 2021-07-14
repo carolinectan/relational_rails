@@ -11,7 +11,7 @@ RSpec.describe 'the Farm edit' do
   it 'links to the edit page from the farms index page' do
     visit '/farms'
 
-    click_link "Update #{@farm.name}"
+    click_link "Edit #{@farm.name}"
 
     expect(current_path).to eq("/farms/#{@farm.id}")
   end
@@ -19,7 +19,7 @@ RSpec.describe 'the Farm edit' do
   it 'links to the edit page from a farm show page' do
     visit "/farms/#{@farm.id}"
 
-    click_link "Update #{@farm.name}"
+    click_link "Edit #{@farm.name}"
 
     expect(current_path).to eq("/farms/#{@farm.id}/edit")
   end
@@ -29,7 +29,7 @@ RSpec.describe 'the Farm edit' do
 
     expect(page).to have_content('Sheep Farm')
 
-    click_link "Update #{@farm.name}"
+    click_link "Edit #{@farm.name}"
 
     visit "/farms/#{@farm.id}/edit"
 
@@ -48,7 +48,7 @@ RSpec.describe 'the Farm edit' do
     expect(page).to have_content('Sheep Farm')
     expect(page).to have_content('true')
 
-    click_link "Update #{@farm.name}"
+    click_link "Edit #{@farm.name}"
 
     visit "/farms/#{@farm.id}/edit"
 

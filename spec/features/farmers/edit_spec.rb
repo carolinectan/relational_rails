@@ -45,7 +45,7 @@ RSpec.describe 'the Farmer edit' do
   it 'links to the edit page from a farmer show page' do
     visit "/farmers/#{@farmer_1.id}"
 
-    click_link "Update Farmer #{@farmer_1.name}"
+    click_link "Edit Farmer #{@farmer_1.name}"
 
     expect(current_path).to eq("/farmers/#{@farmer_1.id}/edit")
   end

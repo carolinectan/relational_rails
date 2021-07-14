@@ -15,11 +15,11 @@ RSpec.describe 'the Farm creation' do
     fill_in('name', with: 'Coconut Tree Farm')
     fill_in('has_animals', with: false)
     fill_in('num_of_fields', with: '42')
-    
+
     click_button('Create New Farm')
 
     expect(current_path).to eq("/farms")
-    expect(page).to have_content("Coconut Tree Farm\n(Created at: #{
+    expect(page).to have_content("Coconut Tree Farm\n(#{
       Farm.last.created_at})")
   end
 

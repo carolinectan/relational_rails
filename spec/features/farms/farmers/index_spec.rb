@@ -108,15 +108,13 @@ RSpec.describe 'farm to farmers index page', type: :feature do
 
     expect(current_path).to eq("/farms/#{@farm_1.id}/farmers")
     # expect(current_path).to eq("/farms/#{@farm_1.id}/farmers/?sort=alpha")
-
-
     expect(page).to have_content("#{@farmer_3.name}\nAge: #{@farmer_3.age
-      }\nOwns Land: #{@farmer_3.owns_land}\nUpdate Farmer #{@farmer_3.name
+      }\nOwns Land: #{@farmer_3.owns_land}\nEdit Farmer #{@farmer_3.name
       } Delete Farmer #{@farmer_3.name}\n#{@farmer_2.name}\nAge: #{
-      @farmer_2.age}\nOwns Land: #{@farmer_2.owns_land}\nUpdate Farmer #{
+      @farmer_2.age}\nOwns Land: #{@farmer_2.owns_land}\nEdit Farmer #{
       @farmer_2.name} Delete Farmer #{@farmer_2.name}\n#{@farmer_1.name
       }\nAge: #{@farmer_1.age}\nOwns Land: #{@farmer_1.owns_land
-      }\nUpdate Farmer #{@farmer_1.name} Delete Farmer #{@farmer_1.name}")
+      }\nEdit Farmer #{@farmer_1.name} Delete Farmer #{@farmer_1.name}")
 
     visit "/farms/#{@farm_2.id}/farmers"
 
@@ -125,14 +123,14 @@ RSpec.describe 'farm to farmers index page', type: :feature do
     expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
     # expect(current_path).to eq("/farms/#{@farm_2.id}/farmers/?sort=alpha")
     expect(page).to have_content("#{@farmer_5.name}\nAge: #{@farmer_5.age
-      }\nOwns Land: #{@farmer_5.owns_land}\nUpdate Farmer #{@farmer_5.name
+      }\nOwns Land: #{@farmer_5.owns_land}\nEdit Farmer #{@farmer_5.name
       } Delete Farmer #{@farmer_5.name}\n#{@farmer_6.name}\nAge: #{
-      @farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}\nUpdate Farmer #{
+      @farmer_6.age}\nOwns Land: #{@farmer_6.owns_land}\nEdit Farmer #{
       @farmer_6.name} Delete Farmer #{@farmer_6.name}\n#{@farmer_7.name
       }\nAge: #{@farmer_7.age}\nOwns Land: #{@farmer_7.owns_land
-      }\nUpdate Farmer #{@farmer_7.name} Delete Farmer #{@farmer_7.name}\n#{@farmer_4.name
-      }\nAge: #{@farmer_4.age}\nOwns Land: #{@farmer_4.owns_land
-      }\nUpdate Farmer #{@farmer_4.name} Delete Farmer #{@farmer_4.name}")
+      }\nEdit Farmer #{@farmer_7.name} Delete Farmer #{@farmer_7.name}\n#{
+      @farmer_4.name}\nAge: #{@farmer_4.age}\nOwns Land: #{@farmer_4.owns_land
+      }\nEdit Farmer #{@farmer_4.name} Delete Farmer #{@farmer_4.name}")
   end
 
   it 'can link to create a new farmer' do
