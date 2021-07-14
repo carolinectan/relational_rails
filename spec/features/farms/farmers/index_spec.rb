@@ -31,7 +31,7 @@ RSpec.describe 'farm to farmers index page', type: :feature do
       }\nOwns Land: #{@farmer_7.owns_land}")
 
     fill_in('number', with: 30)
-    click_button('Only return records that are over the age submitted')
+    click_button('Only Return Farmers over the Age')
 
     expect(current_path).to eq("/farms/#{@farm_2.id}/farmers")
     expect(page).to have_content("#{@farmer_4.name}\nAge: #{@farmer_4.age

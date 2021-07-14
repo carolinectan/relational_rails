@@ -3,11 +3,11 @@
 <%= form_with url:"/plants/#{@plant.id}", method: :patch, local: true do |form| %>
 
   <%= form.label :name, 'Name' %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br><br>
   <%= form.label :edible, 'Edible'  %>
-  <%= form.check_box :edible %>
+  <%= form.check_box :edible %><br><br>
   <%= form.label :mature_height, 'Mature Height' %>
-  <%= form.number_field :mature_height %>
+  <%= form.number_field :mature_height %><br>
 
   <%= form.submit 'Update Plant' %>
 <% end %>

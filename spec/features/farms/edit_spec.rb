@@ -13,7 +13,7 @@ RSpec.describe 'the Farm edit', type: :feature  do
 
     click_link "Edit #{@farm.name}"
 
-    expect(current_path).to eq("/farms/#{@farm.id}")
+    expect(current_path).to eq("/farms/#{@farm.id}/edit")
   end
 
   it 'links to the edit page from a farm show page' do
@@ -34,7 +34,7 @@ RSpec.describe 'the Farm edit', type: :feature  do
     visit "/farms/#{@farm.id}/edit"
 
     fill_in 'name', with: 'Strawberry Farm'
-    fill_in 'has_animals', with: false
+    uncheck 'has_animals'
     click_button "Update #{@farm.name}"
 
     expect(current_path).to eq("/farms/#{@farm.id}")
@@ -53,7 +53,7 @@ RSpec.describe 'the Farm edit', type: :feature  do
     visit "/farms/#{@farm.id}/edit"
 
     fill_in 'name', with: 'Strawberry Farm'
-    fill_in 'has_animals', with: false
+    uncheck 'has_animals'
     click_button "Update #{@farm.name}"
 
     expect(current_path).to eq("/farms/#{@farm.id}")
