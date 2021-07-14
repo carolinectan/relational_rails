@@ -1,9 +1,9 @@
 <h1>All Gardens</h1>
-<%= link_to "Add New Garden", "/gardens/new", method: :get %>
+<%= link_to 'Add New Garden', '/gardens/new', method: :get %>
 
 <% @gardens.each do |garden| %>
-<div class="index-item">
-  <h3><a href='/gardens/<%= garden.id %>'><%= garden.name %></a></h3>
+<div class='index-item'>
+  <h3><%= link_to "#{garden.name}", "/gardens/#{garden.id}" %></h3>
   <p>(<%= garden.created_at %>)</p>
   <%= link_to "Edit #{garden.name}", "gardens/#{garden.id}/edit"  %>
   <%= link_to "Delete #{garden.name}", "/gardens/#{garden.id}", method: :delete %>

@@ -11,12 +11,12 @@ RSpec.describe 'create new plant child' do
       fill_in('Mature Height', with: 16)
       page.check('Edible')
 
-      click_button("Add Plant")
+      click_button('Add Plant')
 
       expect(current_path).to eq("/gardens/#{garden.id}/plants")
-      expect(page).to have_content("poppy")
-      expect(page).to have_content("Edible: true")
-      expect(page).to have_content("Mature Height: 16")
+      expect(page).to have_content('poppy')
+      expect(page).to have_content('Edible: true')
+      expect(page).to have_content('Mature Height: 16')
     end
   end
 end

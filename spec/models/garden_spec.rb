@@ -15,7 +15,7 @@ RSpec.describe Garden, type: :model do
         expect(Garden.sort_descending).to eq([@garden3, @garden2, @garden1])
       end
     end
-    
+
     describe '#plant_count' do
       it 'can count plants' do
         expect(@garden1.plant_count).to eq(3)
@@ -23,7 +23,7 @@ RSpec.describe Garden, type: :model do
     end
   end
 
-  describe "relationships" do
+  describe 'relationships' do
     it {should have_many :plants}
   end
 end
