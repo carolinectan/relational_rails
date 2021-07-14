@@ -96,5 +96,12 @@ RSpec.describe 'Garden Plants Index' do
       click_on("Edit #{@plant2.name}")
       expect(current_path).to eq("/plants/#{@plant2.id}/edit")
     end
+
+    it 'takes you to plant show page' do
+      visit "/gardens/#{@garden.id}/plants"
+
+      click_on("#{@plant2.name}")
+      expect(current_path).to eq("/plants/#{@plant2.id}")
+    end
   end
 end

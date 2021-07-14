@@ -1,7 +1,7 @@
 <h1><%= @garden.name %>'s Plants</h1>
 
 <%= link_to 'Add New Plant', "/gardens/#{@garden.id}/plants/new", method: :get %>
-<%= link_to 'sort by name', "/gardens/#{@garden.id}/plants?sort=alpha" %>
+<%= link_to 'Sort by Name', "/gardens/#{@garden.id}/plants?sort=alpha" %>
 
 <%= form_with url: "/gardens/#{@garden.id}/plants", method: :get, local: true do |form|  %>
   <%= form.label :number, 'Minimum Height' %>
@@ -11,7 +11,7 @@
 
 <% @plants.each do |plant| %>
 <div class='index-item'>
-  <h2><%= plant.name %></h2>
+   <h2><%= link_to "#{plant.name}", "/plants/#{plant.id}" %></h2>
   <p>Mature Height: <%= plant.mature_height %></p>
   <p>Edible: <%= plant.edible %></p>
     <%= link_to "Edit #{plant.name}", "/plants/#{plant.id}/edit" %>
