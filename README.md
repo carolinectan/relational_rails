@@ -1,25 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description:
+* Created webpages that allow users to CRUD (create, read, update, and destroy) resources
+* Used a schema designer to design database tables with one to many relationships (i.e. A Farm has many Farmers; a Farmer belongs to a Farm. A Garden has many Plants; a Plant belongs to a Farmer.)
+* Wrote migrations to create tables with columns of varying data types and foreign keys
+* Created instance and class methods on a Rails model that use ActiveRecord methods and helpers
+* Write model and feature tests that fully cover data logic and user behavior
 
-Things you may want to cover:
+## Technologies:
+* Rails 5.2.6
+* Ruby 2.7.2
+* Active Record
+* PostgreSQL
+* Postico
+* HTML/CSS
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+## Schemas
 * ![Farm Farmers](![Farm Farmers relationship!](app/assets/images/farm_farmers.png)
 * ![Garden Plants](![Garden Plants relationship!](app/assets/images/garden_plants.png)
