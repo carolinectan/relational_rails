@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ![alt text](![Farm Farmers relationship!](/assets/images/farm_farmers.jpg "Farm Farmers")
+* ![Farm Farmers](![Farm Farmers relationship!](app/assets/images/farm_farmers.png)
+* ![Garden Plants](![Garden Plants relationship!](app/assets/images/garden_plants.png)
